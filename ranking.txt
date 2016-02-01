@@ -1,0 +1,113 @@
+112 talks / 82 users / 3647 votes
+1 - 960 - Talk - Python & Friends - it - Gestione di errori ed eccezioni in Python 2 e Python 3 - Alex Martelli
+2 - 1027 - Training - Python & Friends - en - Beautiful async code in Python 3 - Anton Caceres
+3 - 1038 - Training - Python & Friends - it - Docker: dalla build a production - Davide Setti
+4 - 1061 - Talk - Python & Friends - it - Domotica a cinque euro con Raspberry Pi Zero e Open Web Net - Anna Chiara Bellini
+5 - 961 - Talk - Python & Friends - en - Exception and error handling in Python 2 and Python 3 - Alex Martelli
+6 - 1015 - Talk - Python & Friends - it - Capire i Decoratori - Ezio Melotti
+7 - 956 - Talk - Python & Friends - it - Ripensare la programmazione: un approccio funzionale - Francesco Bruni
+8 - 964 - Talk - Python & Friends - it - Delivery isn't magic anymore: distribuisci le tue applicazioni! - Alan Franzoni
+9 - 969 - Talk - PyData - it - Reti Neurali in Python - Simone Piunno
+10 - 999 - Talk - Python & Friends - it - Mischiare threads e fork sotto unix: cose da fare e cose da non fare (principalmente non fare) - Enrico Franchi
+11 - 1031 - Talk - Python & Friends - it - Big data con PostgreSQL - Giuseppe Broccolo
+12 - 1047 - Talk - DjangoVillage - en - Dockerizing Django projects - Roberto Rosario
+13 - 1021 - Talk - Python & Friends - en - Continuous delivery of a Python web project with Docker and Ansible - Joost Cassee
+14 - 1058 - Talk - Python & Friends - en - $5 Home Automation with Raspberry Pi Zero and Open Web Net - Anna Chiara Bellini
+15 - 1046 - Talk - PyData - en - Time Travel and Time Series Analysis with pandas & statsmodels  - Alexander Hendorf
+16 - 952 - Training - Python & Friends - en - Computer Graphics per aspiranti game-developers con Python - Roberto De Ioris
+17 - 978 - Talk - Python & Friends - it - EuroCotoletta 2017 - Christian Barra
+18 - 998 - Talk - Python & Friends - en - Mixing multiprocessing and threads in the UNIX environment: DOs and DONTs (mostly DONTs) - Enrico Franchi
+19 - 1007 - Talk - Python & Friends - en - Introduction of aiohttp - Andrew Svetlov
+20 - 1014 - Talk - Python & Friends - en - Understanding Decorators - Ezio Melotti
+21 - 1039 - Talk - Python & Friends - en - Building an asynchronous websocket server - Tatiana Al-Chueyr
+22 - 962 - Talk - Python & Friends - it - La vita di uno sviluppatore di free software - Riccardo Magliocchetti
+23 - 990 - Talk - Python & Friends - it - Abstract Base Classes: un uso intelligente delle metaclassi - Leonardo Giordani
+24 - 970 - Talk - Python & Friends - en - Strings don't exist - Martin Matusiak
+25 - 1006 - Talk - Python & Friends - en - Tox as project descriptor: not only Continuous Integration - Roberto Polli
+26 - 973 - Talk - Python & Friends - it - Ansible: automazione IT vocata al Cloud - Ivan Rossi
+27 - 1000 - Talk - Python & Friends - it - Comando di un robot con Python - Antonio Spadaro
+28 - 1011 - Talk - PyData - en - Building Data Pipelines in Python - Marco Bonzanini
+29 - 1040 - Talk - PyData - en - %%async_run: an IPython notebook magic for asynchronous cell execution - Valerio Maggio
+30 - 1044 - Talk - Python & Friends - it - Pglogical: il futuro della replica con Postgres - Marco Nenciarini
+31 - 1045 - Talk - PyData - en - Pythonic Particles - Valerio Maggio
+32 - 1002 - Talk - PyData - en - Machine learning and IoT for automatic presence detection of workers on fall protection life lines - Stefano Terna
+33 - 980 - Talk - Python & Friends - it - How to fight with yourself and win - Christian Barra
+34 - 1029 - Talk - Python & Friends - it - PyContinuous Integration: una esperienza di vita - Giulio Calacoci
+35 - 975 - Talk - Python & Friends - it - Introduzione a MicroPython e BBC Micro:Bit - Andrea Grandi
+36 - 1050 - Talk - DjangoVillage - en - What we understood about Microservices - Saverio Mucci
+37 - 953 - Talk - Python & Friends - it - DukPy, liberarsi dalle catene di NodeJS - Alessandro Molina
+38 - 986 - Training - Python & Friends - en - Python for System Administrators - Roberto Polli
+39 - 987 - Talk - DjangoVillage - it - Grafici interattivi con Django e Highcharts JS (senza conoscere JS) - ERNESTO ARBITRIO
+40 - 963 - Talk - Python & Friends - en - CONNEXION: API FIRST REST FRAMEWORK FOR PYTHON - João Santos
+41 - 991 - Talk - Python & Friends - en - Abstract Base Classes: a smart use of metaclasses - Leonardo Giordani
+42 - 954 - Talk - Python & Friends - en - Introduction to MicroPython and BBC micro:bit - Andrea Grandi
+43 - 989 - Talk - DjangoVillage - it - Django e i test: alcuni supporti per vivere felici - Iacopo Spalletti
+44 - 994 - Talk - PyData - en - How to deploy scikit-learn machine learning models in the Cloud - Alex Casalboni
+45 - 1025 - Talk - PyData - en - Contagious Functional Concepts in Python and the Data Science Eco-System - Holger Peters
+46 - 974 - Talk - Python & Friends - en - Introduction to JSON Schema - Julian Berman
+47 - 1048 - Talk - DjangoVillage - en - Django tasty salad: DOs and DON'Ts using Celery - Roberto Rosario
+48 - 1020 - Talk - Python & Friends - en - Iottly, open source Internet of Things distribution - Stefano Terna
+49 - 1051 - Talk - Python & Friends - en - Fixing memory leaks with tracemalloc and gc - Marco Paolini
+50 - 1028 - Talk - PyData - en - Cython extends Python - Stefan Behnel
+51 - 1033 - Talk - Python & Friends - it - Multicorn: unicorni e elefanti possono lavorare in concerto. - Giulio Calacoci
+52 - 1004 - Talk - Python & Friends - en - A huge green snake bars the way!; Or, and Exercise in Refactoring - Katie Silverio
+53 - 966 - Talk - PyData - it - Metodi e  Strumenti per il Model Based Testing - Aniello Barletta
+54 - 1052 - Talk - Python & Friends - it - Sistemare i memory leaks con tracemalloc e gc - Marco Paolini
+55 - 1042 - Talk - PyData - en - Data Mangling with mongoDB the Right Way - Alexander Hendorf
+56 - 1056 - Training - DjangoVillage - en - Scale and distribute your django backend app - Marco Paolini
+57 - 1034 - Talk - Python & Friends - it - Docker e PostgreSQL: un matrimonio possibile? - Leonardo Cecchi
+58 - 1057 - Talk - DjangoVillage - it - Debito tecnico: come non andare in rosso - Simone Basso
+59 - 951 - Talk - Python & Friends - it - Introduzione a "Modern OpenGL" con Python - Roberto De Ioris
+60 - 1008 - Training - Python & Friends - en - Master class for aiohttp usage - Andrew Svetlov
+61 - 1019 - Talk - Python & Friends - it - Java VS Python - Simone Federici
+62 - 976 - Talk - Python & Friends - it - Erpy: una solida base per scrivere gestionali su misura. - Giovanni Porcari
+63 - 979 - Talk - Python & Friends - it - Genropy: non solo gestionali - Francesco Porcari
+64 - 1032 - Talk - Python & Friends - en - Taking care of PostgreSQL with Ansible - Rubens Souza
+65 - 1026 - Talk - DjangoVillage - it - Elasticsearch Blueprint - Christian Strappazzon
+66 - 988 - Talk - DjangoVillage - it - Django e i metadati - Iacopo Spalletti
+67 - 1003 - Talk - PyData - it - Machine learning e IoT per la rilevazione automatica di operatori su linee vita anticaduta - Stefano Terna
+68 - 1054 - Talk - DjangoVillage - it - Come integrare elasticsearch e dormire sonni tranquilli - Martino Pizzol
+69 - 1059 - Talk - DjangoVillage - it - Progetti a prezzo fisso e l'Agile - Peter Bittner
+70 - 1035 - Talk - PyData - en - Automatic English text correction - Tatiana Al-Chueyr
+71 - 957 - Talk - Python & Friends - it - Un CRM con Genropy,e altro - Alessandro Tufi
+72 - 984 - Training - Python & Friends - it - Dive into object-oriented Python - Leonardo Giordani
+73 - 1062 - Talk - DjangoVillage - en - Developing a developer-friendly hypermedia API with django-rest-framework and behave - Joost Cassee
+74 - 955 - Talk - PyData - it - Applied Bayesian Inference with PyMC - Marco Santoni
+75 - 977 - Training - Python & Friends - it - Genropy For Dummies - Francesco Porcari
+76 - 1024 - Talk - DjangoVillage - en - Fix-Price Projects And Agile - Peter Bittner
+77 - 1022 - Talk - Python & Friends - it - Iottly, distribuzione open source per Internet of Things - Stefano Terna
+78 - 1030 - Talk - Python & Friends - it - Auditing di un database PostgreSQL con Psycopg2 e pglogical - Marco Nenciarini
+79 - 959 - Talk - Python & Friends - it - Convalida dei dati per esseri umani - Nicola Iarocci
+80 - 1009 - Talk - Python & Friends - it - Una storia di mille storie, con due punti fermi: Python e PostgreSQL - carloratm carloratm
+81 - 1036 - Talk - PyData - en - Devops lessons for the data scientist - Luca Mearelli
+82 - 996 - Talk - PyData - it - Automatizzare la creazione e gestione di un cluster di containers su cloud tramite script Python - Paolo D'Onorio De Meo
+83 - 1043 - Talk - PyData - it - Aiuto !!! Ho un dataset "squilibrato" ! - Christian Barra
+84 - 1053 - Talk - Python & Friends - it - Autocompletamento per Blender Game Engine logic  - Anna Chiara Bellini
+85 - 1005 - Talk - PyData - it - Introduzione a Orange Data Mining - Eric Bonfadini
+86 - 1023 - Talk - Python & Friends - it - Python come Hardware Description Language - Paolo Guadagnuolo
+87 - 1049 - Talk - DjangoVillage - it - Progetti acceptance test-driven con Django - Peter Bittner
+88 - 981 - Talk - Python & Friends - it - Fate RPG: una web application per giocarlo online. - Saverio Porcari
+89 - 985 - Training - Python & Friends - en - Dive into object-oriented Python - Leonardo Giordani
+90 - 965 - Talk - Python & Friends - en - From Java to Python - OFFER SHARABI
+91 - 967 - Talk - Python & Friends - it - Monitoraggio delle Risorse con Zabbix e Python - Massimiliano Cuzzoli
+92 - 971 - Talk - DjangoVillage - it - Django e frontend? Gulp! Razionalizzare la gestione degli assets frontend in un progetto Django - Alberto Motta
+93 - 1016 - Talk - PyData - it - In-Database analytics with python and monetdb - Danilo Maurizio
+94 - 1037 - Talk - PyData - it - Lezioni devops per data scientist - Luca Mearelli
+95 - 1010 - Talk - DjangoVillage - en - Acceptance Test-driven Projects With Django - Peter Bittner
+96 - 1041 - Talk - Python & Friends - it - Come passare indenni (o quasi) la traversata da Java a Python - Ugo Scaiella
+97 - 1055 - Talk - Python & Friends - en - Blender Game Engine logic and autocompletion - Anna Chiara Bellini
+98 - 1060 - Training - DjangoVillage - it - Rendi scalabile la tua app django - Marco Paolini
+99 - 958 - Talk - DjangoVillage - it - Viaggiare leggeri col proprio progetto Django - Riccardo Magliocchetti
+100 - 1017 - Talk - PyData - it - HPC con Python: istruzioni per l'uso - Nicola Creati
+101 - 968 - Talk - Python & Friends - en - Resource Monitoring with Zabbix and Python - Massimiliano Cuzzoli
+102 - 1018 - Talk - DjangoVillage - it - Pytest & Django are really good friends!! - Simone Dalla
+103 - 997 - Talk - DjangoVillage - it - django SHOP è ritornato - Jacob Rief
+104 - 995 - Talk - DjangoVillage - en - djangoSHOP is back - Jacob Rief
+105 - 972 - Talk - DjangoVillage - it - Django 💖Gulp - Mattia Larentis
+106 - 1001 - Talk - Odoo - it - Odoo in Italia: La suite di applicazioni business scritta in python - Mario Riva
+107 - 1012 - Talk - Odoo - it - Primi passi in Odoo dev - Eliumara Lopez
+108 - 982 - Talk - Python & Friends - it - jmb.mailup, uno strumento semplice per interfacciarsi con MailUp - Benedetto Campanale
+109 - 992 - Talk - Odoo - it - Sviluppare su Odoo - Nicola Malcontenti
+110 - 993 - Talk - Odoo - it - OCA, la community internazionale di Odoo: Come contribuire sfruttando al meglio github. - Alex Comba
+111 - 950 - Talk - Python & Friends - it - Perl6 is here to rest! - David Mugnai
+112 - 1013 - Talk - Odoo - it - Gestione di un Consorzio con Odoo - Piero Cecchi
