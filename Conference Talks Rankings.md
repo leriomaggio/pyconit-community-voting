@@ -1,13 +1,15 @@
 
 <div style="background-color:#000"> 
-    <img src='https://raw.githubusercontent.com/leriomaggio/pycon7-community-voting/master/logos/pycon7.png' width='50%' />
+    <img src='logos/pycon7.png' width='50%' />
 </div>
 
 
 ```python
 import pandas as pd
+import numpy as np
 ```
 
+<a name="absolute_rank"></a>
 # Community Voting Results
 
 ### Absolute Ranking
@@ -533,6 +535,7 @@ rankings
 
 
 
+<a name="trainings"></a>
 # Trainings
 
 
@@ -642,6 +645,7 @@ rankings[rankings['type'].values == 'Training']
 
 
 
+<a name="talks"></a>
 # Talks
 
 
@@ -649,11 +653,29 @@ rankings[rankings['type'].values == 'Training']
 talks = rankings[rankings['type'].values == 'Talk']
 ```
 
+<a name="pycon"></a>
 ## Main Conference Track: (*aka Python & Friends*)
 
 
 ```python
+
+np.arange(1, 56)
+```
+
+
+
+
+    array([ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16, 17,
+           18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34,
+           35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51,
+           52, 53, 54, 55])
+
+
+
+
+```python
 main_conf_talks = talks[talks['track'].values == 'Python & Friends']
+main_conf_talks.index = np.arange(1, main_conf_talks.index.size+1)
 main_conf_talks
 ```
 
@@ -682,7 +704,7 @@ main_conf_talks
       <td>Alex Martelli</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>2</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>it</td>
@@ -690,7 +712,7 @@ main_conf_talks
       <td>Anna Chiara Bellini</td>
     </tr>
     <tr>
-      <th>5</th>
+      <th>3</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>en</td>
@@ -698,7 +720,7 @@ main_conf_talks
       <td>Alex Martelli</td>
     </tr>
     <tr>
-      <th>6</th>
+      <th>4</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>it</td>
@@ -706,7 +728,7 @@ main_conf_talks
       <td>Ezio Melotti</td>
     </tr>
     <tr>
-      <th>7</th>
+      <th>5</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>it</td>
@@ -714,7 +736,7 @@ main_conf_talks
       <td>Francesco Bruni</td>
     </tr>
     <tr>
-      <th>8</th>
+      <th>6</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>it</td>
@@ -722,7 +744,7 @@ main_conf_talks
       <td>Alan Franzoni</td>
     </tr>
     <tr>
-      <th>10</th>
+      <th>7</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>it</td>
@@ -730,7 +752,7 @@ main_conf_talks
       <td>Enrico Franchi</td>
     </tr>
     <tr>
-      <th>11</th>
+      <th>8</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>it</td>
@@ -738,7 +760,7 @@ main_conf_talks
       <td>Giuseppe Broccolo</td>
     </tr>
     <tr>
-      <th>13</th>
+      <th>9</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>en</td>
@@ -746,7 +768,7 @@ main_conf_talks
       <td>Joost Cassee</td>
     </tr>
     <tr>
-      <th>14</th>
+      <th>10</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>en</td>
@@ -754,7 +776,7 @@ main_conf_talks
       <td>Anna Chiara Bellini</td>
     </tr>
     <tr>
-      <th>17</th>
+      <th>11</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>it</td>
@@ -762,7 +784,7 @@ main_conf_talks
       <td>Christian Barra</td>
     </tr>
     <tr>
-      <th>18</th>
+      <th>12</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>en</td>
@@ -770,7 +792,7 @@ main_conf_talks
       <td>Enrico Franchi</td>
     </tr>
     <tr>
-      <th>19</th>
+      <th>13</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>en</td>
@@ -778,7 +800,7 @@ main_conf_talks
       <td>Andrew Svetlov</td>
     </tr>
     <tr>
-      <th>20</th>
+      <th>14</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>en</td>
@@ -786,7 +808,7 @@ main_conf_talks
       <td>Ezio Melotti</td>
     </tr>
     <tr>
-      <th>21</th>
+      <th>15</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>en</td>
@@ -794,7 +816,7 @@ main_conf_talks
       <td>Tatiana Al-Chueyr</td>
     </tr>
     <tr>
-      <th>22</th>
+      <th>16</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>it</td>
@@ -802,7 +824,7 @@ main_conf_talks
       <td>Riccardo Magliocchetti</td>
     </tr>
     <tr>
-      <th>23</th>
+      <th>17</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>it</td>
@@ -810,7 +832,7 @@ main_conf_talks
       <td>Leonardo Giordani</td>
     </tr>
     <tr>
-      <th>24</th>
+      <th>18</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>en</td>
@@ -818,7 +840,7 @@ main_conf_talks
       <td>Martin Matusiak</td>
     </tr>
     <tr>
-      <th>25</th>
+      <th>19</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>en</td>
@@ -826,7 +848,7 @@ main_conf_talks
       <td>Roberto Polli</td>
     </tr>
     <tr>
-      <th>26</th>
+      <th>20</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>it</td>
@@ -834,7 +856,7 @@ main_conf_talks
       <td>Ivan Rossi</td>
     </tr>
     <tr>
-      <th>27</th>
+      <th>21</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>it</td>
@@ -842,7 +864,7 @@ main_conf_talks
       <td>Antonio Spadaro</td>
     </tr>
     <tr>
-      <th>30</th>
+      <th>22</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>it</td>
@@ -850,7 +872,7 @@ main_conf_talks
       <td>Marco Nenciarini</td>
     </tr>
     <tr>
-      <th>33</th>
+      <th>23</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>it</td>
@@ -858,7 +880,7 @@ main_conf_talks
       <td>Christian Barra</td>
     </tr>
     <tr>
-      <th>34</th>
+      <th>24</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>it</td>
@@ -866,7 +888,7 @@ main_conf_talks
       <td>Giulio Calacoci</td>
     </tr>
     <tr>
-      <th>35</th>
+      <th>25</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>it</td>
@@ -874,7 +896,7 @@ main_conf_talks
       <td>Andrea Grandi</td>
     </tr>
     <tr>
-      <th>37</th>
+      <th>26</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>it</td>
@@ -882,7 +904,7 @@ main_conf_talks
       <td>Alessandro Molina</td>
     </tr>
     <tr>
-      <th>40</th>
+      <th>27</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>en</td>
@@ -890,7 +912,7 @@ main_conf_talks
       <td>João Santos</td>
     </tr>
     <tr>
-      <th>41</th>
+      <th>28</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>en</td>
@@ -898,7 +920,7 @@ main_conf_talks
       <td>Leonardo Giordani</td>
     </tr>
     <tr>
-      <th>42</th>
+      <th>29</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>en</td>
@@ -906,7 +928,7 @@ main_conf_talks
       <td>Andrea Grandi</td>
     </tr>
     <tr>
-      <th>46</th>
+      <th>30</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>en</td>
@@ -914,7 +936,7 @@ main_conf_talks
       <td>Julian Berman</td>
     </tr>
     <tr>
-      <th>48</th>
+      <th>31</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>en</td>
@@ -922,7 +944,7 @@ main_conf_talks
       <td>Stefano Terna</td>
     </tr>
     <tr>
-      <th>49</th>
+      <th>32</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>en</td>
@@ -930,7 +952,7 @@ main_conf_talks
       <td>Marco Paolini</td>
     </tr>
     <tr>
-      <th>51</th>
+      <th>33</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>it</td>
@@ -938,7 +960,7 @@ main_conf_talks
       <td>Giulio Calacoci</td>
     </tr>
     <tr>
-      <th>52</th>
+      <th>34</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>en</td>
@@ -946,7 +968,7 @@ main_conf_talks
       <td>Katie Silverio</td>
     </tr>
     <tr>
-      <th>54</th>
+      <th>35</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>it</td>
@@ -954,7 +976,7 @@ main_conf_talks
       <td>Marco Paolini</td>
     </tr>
     <tr>
-      <th>57</th>
+      <th>36</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>it</td>
@@ -962,7 +984,7 @@ main_conf_talks
       <td>Leonardo Cecchi</td>
     </tr>
     <tr>
-      <th>59</th>
+      <th>37</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>it</td>
@@ -970,7 +992,7 @@ main_conf_talks
       <td>Roberto De Ioris</td>
     </tr>
     <tr>
-      <th>61</th>
+      <th>38</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>it</td>
@@ -978,7 +1000,7 @@ main_conf_talks
       <td>Simone Federici</td>
     </tr>
     <tr>
-      <th>62</th>
+      <th>39</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>it</td>
@@ -986,7 +1008,7 @@ main_conf_talks
       <td>Giovanni Porcari</td>
     </tr>
     <tr>
-      <th>63</th>
+      <th>40</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>it</td>
@@ -994,7 +1016,7 @@ main_conf_talks
       <td>Francesco Porcari</td>
     </tr>
     <tr>
-      <th>64</th>
+      <th>41</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>en</td>
@@ -1002,7 +1024,7 @@ main_conf_talks
       <td>Rubens Souza</td>
     </tr>
     <tr>
-      <th>71</th>
+      <th>42</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>it</td>
@@ -1010,7 +1032,7 @@ main_conf_talks
       <td>Alessandro Tufi</td>
     </tr>
     <tr>
-      <th>77</th>
+      <th>43</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>it</td>
@@ -1018,7 +1040,7 @@ main_conf_talks
       <td>Stefano Terna</td>
     </tr>
     <tr>
-      <th>78</th>
+      <th>44</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>it</td>
@@ -1026,7 +1048,7 @@ main_conf_talks
       <td>Marco Nenciarini</td>
     </tr>
     <tr>
-      <th>79</th>
+      <th>45</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>it</td>
@@ -1034,7 +1056,7 @@ main_conf_talks
       <td>Nicola Iarocci</td>
     </tr>
     <tr>
-      <th>80</th>
+      <th>46</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>it</td>
@@ -1042,7 +1064,7 @@ main_conf_talks
       <td>carloratm carloratm</td>
     </tr>
     <tr>
-      <th>84</th>
+      <th>47</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>it</td>
@@ -1050,7 +1072,7 @@ main_conf_talks
       <td>Anna Chiara Bellini</td>
     </tr>
     <tr>
-      <th>86</th>
+      <th>48</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>it</td>
@@ -1058,7 +1080,7 @@ main_conf_talks
       <td>Paolo Guadagnuolo</td>
     </tr>
     <tr>
-      <th>88</th>
+      <th>49</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>it</td>
@@ -1066,7 +1088,7 @@ main_conf_talks
       <td>Saverio Porcari</td>
     </tr>
     <tr>
-      <th>90</th>
+      <th>50</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>en</td>
@@ -1074,7 +1096,7 @@ main_conf_talks
       <td>OFFER SHARABI</td>
     </tr>
     <tr>
-      <th>91</th>
+      <th>51</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>it</td>
@@ -1082,7 +1104,7 @@ main_conf_talks
       <td>Massimiliano Cuzzoli</td>
     </tr>
     <tr>
-      <th>96</th>
+      <th>52</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>it</td>
@@ -1090,7 +1112,7 @@ main_conf_talks
       <td>Ugo Scaiella</td>
     </tr>
     <tr>
-      <th>97</th>
+      <th>53</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>en</td>
@@ -1098,7 +1120,7 @@ main_conf_talks
       <td>Anna Chiara Bellini</td>
     </tr>
     <tr>
-      <th>101</th>
+      <th>54</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>en</td>
@@ -1106,7 +1128,7 @@ main_conf_talks
       <td>Massimiliano Cuzzoli</td>
     </tr>
     <tr>
-      <th>108</th>
+      <th>55</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>it</td>
@@ -1114,7 +1136,7 @@ main_conf_talks
       <td>Benedetto Campanale</td>
     </tr>
     <tr>
-      <th>111</th>
+      <th>56</th>
       <td>Talk</td>
       <td>Python &amp; Friends</td>
       <td>it</td>
@@ -1129,7 +1151,7 @@ main_conf_talks
 
 
 ```python
-print('Number of Talks Proposed: ', main_conf_talks['type'].count())
+print('Number of Talks Proposed: ', main_conf_talks.index.size)
 ```
 
     Number of Talks Proposed:  56
@@ -1138,12 +1160,14 @@ print('Number of Talks Proposed: ', main_conf_talks['type'].count())
 # Sub Communities
 
 <div style="background-color: #FAFAFA">
-    <img src='https://raw.githubusercontent.com/leriomaggio/pycon7-community-voting/master/logos/djangovillage.png' style="align: center;" />
+    <a name="djangovillage"></a>
+    <img src='logos/djangovillage.png' style="align: center;" />
 </div>
 
 
 ```python
 djangovillagers = talks[talks['track'].values == 'DjangoVillage']
+djangovillagers.index = np.arange(1, djangovillagers.index.size+1)
 djangovillagers
 ```
 
@@ -1164,7 +1188,7 @@ djangovillagers
   </thead>
   <tbody>
     <tr>
-      <th>12</th>
+      <th>1</th>
       <td>Talk</td>
       <td>DjangoVillage</td>
       <td>en</td>
@@ -1172,7 +1196,7 @@ djangovillagers
       <td>Roberto Rosario</td>
     </tr>
     <tr>
-      <th>36</th>
+      <th>2</th>
       <td>Talk</td>
       <td>DjangoVillage</td>
       <td>en</td>
@@ -1180,7 +1204,7 @@ djangovillagers
       <td>Saverio Mucci</td>
     </tr>
     <tr>
-      <th>39</th>
+      <th>3</th>
       <td>Talk</td>
       <td>DjangoVillage</td>
       <td>it</td>
@@ -1188,7 +1212,7 @@ djangovillagers
       <td>ERNESTO ARBITRIO</td>
     </tr>
     <tr>
-      <th>43</th>
+      <th>4</th>
       <td>Talk</td>
       <td>DjangoVillage</td>
       <td>it</td>
@@ -1196,7 +1220,7 @@ djangovillagers
       <td>Iacopo Spalletti</td>
     </tr>
     <tr>
-      <th>47</th>
+      <th>5</th>
       <td>Talk</td>
       <td>DjangoVillage</td>
       <td>en</td>
@@ -1204,7 +1228,7 @@ djangovillagers
       <td>Roberto Rosario</td>
     </tr>
     <tr>
-      <th>58</th>
+      <th>6</th>
       <td>Talk</td>
       <td>DjangoVillage</td>
       <td>it</td>
@@ -1212,7 +1236,7 @@ djangovillagers
       <td>Simone Basso</td>
     </tr>
     <tr>
-      <th>65</th>
+      <th>7</th>
       <td>Talk</td>
       <td>DjangoVillage</td>
       <td>it</td>
@@ -1220,7 +1244,7 @@ djangovillagers
       <td>Christian Strappazzon</td>
     </tr>
     <tr>
-      <th>66</th>
+      <th>8</th>
       <td>Talk</td>
       <td>DjangoVillage</td>
       <td>it</td>
@@ -1228,7 +1252,7 @@ djangovillagers
       <td>Iacopo Spalletti</td>
     </tr>
     <tr>
-      <th>68</th>
+      <th>9</th>
       <td>Talk</td>
       <td>DjangoVillage</td>
       <td>it</td>
@@ -1236,7 +1260,7 @@ djangovillagers
       <td>Martino Pizzol</td>
     </tr>
     <tr>
-      <th>69</th>
+      <th>10</th>
       <td>Talk</td>
       <td>DjangoVillage</td>
       <td>it</td>
@@ -1244,7 +1268,7 @@ djangovillagers
       <td>Peter Bittner</td>
     </tr>
     <tr>
-      <th>73</th>
+      <th>11</th>
       <td>Talk</td>
       <td>DjangoVillage</td>
       <td>en</td>
@@ -1252,7 +1276,7 @@ djangovillagers
       <td>Joost Cassee</td>
     </tr>
     <tr>
-      <th>76</th>
+      <th>12</th>
       <td>Talk</td>
       <td>DjangoVillage</td>
       <td>en</td>
@@ -1260,7 +1284,7 @@ djangovillagers
       <td>Peter Bittner</td>
     </tr>
     <tr>
-      <th>87</th>
+      <th>13</th>
       <td>Talk</td>
       <td>DjangoVillage</td>
       <td>it</td>
@@ -1268,7 +1292,7 @@ djangovillagers
       <td>Peter Bittner</td>
     </tr>
     <tr>
-      <th>92</th>
+      <th>14</th>
       <td>Talk</td>
       <td>DjangoVillage</td>
       <td>it</td>
@@ -1276,7 +1300,7 @@ djangovillagers
       <td>Alberto Motta</td>
     </tr>
     <tr>
-      <th>95</th>
+      <th>15</th>
       <td>Talk</td>
       <td>DjangoVillage</td>
       <td>en</td>
@@ -1284,7 +1308,7 @@ djangovillagers
       <td>Peter Bittner</td>
     </tr>
     <tr>
-      <th>99</th>
+      <th>16</th>
       <td>Talk</td>
       <td>DjangoVillage</td>
       <td>it</td>
@@ -1292,7 +1316,7 @@ djangovillagers
       <td>Riccardo Magliocchetti</td>
     </tr>
     <tr>
-      <th>102</th>
+      <th>17</th>
       <td>Talk</td>
       <td>DjangoVillage</td>
       <td>it</td>
@@ -1300,7 +1324,7 @@ djangovillagers
       <td>Simone Dalla</td>
     </tr>
     <tr>
-      <th>103</th>
+      <th>18</th>
       <td>Talk</td>
       <td>DjangoVillage</td>
       <td>it</td>
@@ -1308,7 +1332,7 @@ djangovillagers
       <td>Jacob Rief</td>
     </tr>
     <tr>
-      <th>104</th>
+      <th>19</th>
       <td>Talk</td>
       <td>DjangoVillage</td>
       <td>en</td>
@@ -1316,7 +1340,7 @@ djangovillagers
       <td>Jacob Rief</td>
     </tr>
     <tr>
-      <th>105</th>
+      <th>20</th>
       <td>Talk</td>
       <td>DjangoVillage</td>
       <td>it</td>
@@ -1331,19 +1355,21 @@ djangovillagers
 
 
 ```python
-print('Number of Talks Proposed: ', djangovillagers['type'].count())
+print('Number of Talks Proposed: ', djangovillagers.index.size)
 ```
 
     Number of Talks Proposed:  20
 
 
 <div style="background-color: #FAFAFA">
-    <img src='https://raw.githubusercontent.com/leriomaggio/pycon7-community-voting/master/logos/pydata.png' style="align: center;" />
+    <a name="pydata"></a>
+    <img src='logos/pydata.png' style="align: center;" />
 </div>
 
 
 ```python
 pydataers = talks[talks['track'].values == 'PyData']
+pydataers.index = np.arange(1, pydataers.index.size+1)
 pydataers
 ```
 
@@ -1364,7 +1390,7 @@ pydataers
   </thead>
   <tbody>
     <tr>
-      <th>9</th>
+      <th>1</th>
       <td>Talk</td>
       <td>PyData</td>
       <td>it</td>
@@ -1372,7 +1398,7 @@ pydataers
       <td>Simone Piunno</td>
     </tr>
     <tr>
-      <th>15</th>
+      <th>2</th>
       <td>Talk</td>
       <td>PyData</td>
       <td>en</td>
@@ -1380,7 +1406,7 @@ pydataers
       <td>Alexander Hendorf</td>
     </tr>
     <tr>
-      <th>28</th>
+      <th>3</th>
       <td>Talk</td>
       <td>PyData</td>
       <td>en</td>
@@ -1388,7 +1414,7 @@ pydataers
       <td>Marco Bonzanini</td>
     </tr>
     <tr>
-      <th>29</th>
+      <th>4</th>
       <td>Talk</td>
       <td>PyData</td>
       <td>en</td>
@@ -1396,7 +1422,7 @@ pydataers
       <td>Valerio Maggio</td>
     </tr>
     <tr>
-      <th>31</th>
+      <th>5</th>
       <td>Talk</td>
       <td>PyData</td>
       <td>en</td>
@@ -1404,7 +1430,7 @@ pydataers
       <td>Valerio Maggio</td>
     </tr>
     <tr>
-      <th>32</th>
+      <th>6</th>
       <td>Talk</td>
       <td>PyData</td>
       <td>en</td>
@@ -1412,7 +1438,7 @@ pydataers
       <td>Stefano Terna</td>
     </tr>
     <tr>
-      <th>44</th>
+      <th>7</th>
       <td>Talk</td>
       <td>PyData</td>
       <td>en</td>
@@ -1420,7 +1446,7 @@ pydataers
       <td>Alex Casalboni</td>
     </tr>
     <tr>
-      <th>45</th>
+      <th>8</th>
       <td>Talk</td>
       <td>PyData</td>
       <td>en</td>
@@ -1428,7 +1454,7 @@ pydataers
       <td>Holger Peters</td>
     </tr>
     <tr>
-      <th>50</th>
+      <th>9</th>
       <td>Talk</td>
       <td>PyData</td>
       <td>en</td>
@@ -1436,7 +1462,7 @@ pydataers
       <td>Stefan Behnel</td>
     </tr>
     <tr>
-      <th>53</th>
+      <th>10</th>
       <td>Talk</td>
       <td>PyData</td>
       <td>it</td>
@@ -1444,7 +1470,7 @@ pydataers
       <td>Aniello Barletta</td>
     </tr>
     <tr>
-      <th>55</th>
+      <th>11</th>
       <td>Talk</td>
       <td>PyData</td>
       <td>en</td>
@@ -1452,7 +1478,7 @@ pydataers
       <td>Alexander Hendorf</td>
     </tr>
     <tr>
-      <th>67</th>
+      <th>12</th>
       <td>Talk</td>
       <td>PyData</td>
       <td>it</td>
@@ -1460,7 +1486,7 @@ pydataers
       <td>Stefano Terna</td>
     </tr>
     <tr>
-      <th>70</th>
+      <th>13</th>
       <td>Talk</td>
       <td>PyData</td>
       <td>en</td>
@@ -1468,7 +1494,7 @@ pydataers
       <td>Tatiana Al-Chueyr</td>
     </tr>
     <tr>
-      <th>74</th>
+      <th>14</th>
       <td>Talk</td>
       <td>PyData</td>
       <td>it</td>
@@ -1476,7 +1502,7 @@ pydataers
       <td>Marco Santoni</td>
     </tr>
     <tr>
-      <th>81</th>
+      <th>15</th>
       <td>Talk</td>
       <td>PyData</td>
       <td>en</td>
@@ -1484,7 +1510,7 @@ pydataers
       <td>Luca Mearelli</td>
     </tr>
     <tr>
-      <th>82</th>
+      <th>16</th>
       <td>Talk</td>
       <td>PyData</td>
       <td>it</td>
@@ -1492,7 +1518,7 @@ pydataers
       <td>Paolo D'Onorio De Meo</td>
     </tr>
     <tr>
-      <th>83</th>
+      <th>17</th>
       <td>Talk</td>
       <td>PyData</td>
       <td>it</td>
@@ -1500,7 +1526,7 @@ pydataers
       <td>Christian Barra</td>
     </tr>
     <tr>
-      <th>85</th>
+      <th>18</th>
       <td>Talk</td>
       <td>PyData</td>
       <td>it</td>
@@ -1508,7 +1534,7 @@ pydataers
       <td>Eric Bonfadini</td>
     </tr>
     <tr>
-      <th>93</th>
+      <th>19</th>
       <td>Talk</td>
       <td>PyData</td>
       <td>it</td>
@@ -1516,7 +1542,7 @@ pydataers
       <td>Danilo Maurizio</td>
     </tr>
     <tr>
-      <th>94</th>
+      <th>20</th>
       <td>Talk</td>
       <td>PyData</td>
       <td>it</td>
@@ -1524,7 +1550,7 @@ pydataers
       <td>Luca Mearelli</td>
     </tr>
     <tr>
-      <th>100</th>
+      <th>21</th>
       <td>Talk</td>
       <td>PyData</td>
       <td>it</td>
@@ -1539,19 +1565,21 @@ pydataers
 
 
 ```python
-print('Number of Talks Proposed: ', pydataers['type'].count())
+print('Number of Talks Proposed: ', pydataers.index.size)
 ```
 
     Number of Talks Proposed:  21
 
 
 <div style="background-color: #FAFAFA">
-    <img src='https://raw.githubusercontent.com/leriomaggio/pycon7-community-voting/master/logos/odoo.png' style="align: center;" />
+    <a name="odoo"></a>
+    <img src='logos/odoo.png' style="align: center;" />
 </div>
 
 
 ```python
 odooers = talks[talks['track'].values == 'Odoo']
+odooers.index = np.arange(1, odooers.index.size+1)
 odooers
 ```
 
@@ -1572,7 +1600,7 @@ odooers
   </thead>
   <tbody>
     <tr>
-      <th>106</th>
+      <th>1</th>
       <td>Talk</td>
       <td>Odoo</td>
       <td>it</td>
@@ -1580,7 +1608,7 @@ odooers
       <td>Mario Riva</td>
     </tr>
     <tr>
-      <th>107</th>
+      <th>2</th>
       <td>Talk</td>
       <td>Odoo</td>
       <td>it</td>
@@ -1588,7 +1616,7 @@ odooers
       <td>Eliumara Lopez</td>
     </tr>
     <tr>
-      <th>109</th>
+      <th>3</th>
       <td>Talk</td>
       <td>Odoo</td>
       <td>it</td>
@@ -1596,7 +1624,7 @@ odooers
       <td>Nicola Malcontenti</td>
     </tr>
     <tr>
-      <th>110</th>
+      <th>4</th>
       <td>Talk</td>
       <td>Odoo</td>
       <td>it</td>
@@ -1604,7 +1632,7 @@ odooers
       <td>Alex Comba</td>
     </tr>
     <tr>
-      <th>112</th>
+      <th>5</th>
       <td>Talk</td>
       <td>Odoo</td>
       <td>it</td>
@@ -1619,7 +1647,7 @@ odooers
 
 
 ```python
-print('Number of Talks Proposed: ', odooers['type'].count())
+print('Number of Talks Proposed: ', odooers.index.size)
 ```
 
     Number of Talks Proposed:  5
