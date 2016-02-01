@@ -10,8 +10,8 @@ Community Voting Results and Rankings of Talks proposed at PyCon Sette: [http://
 
 ## All the Rankings: ##
 
-*  **Main Conference Talks**: [https://gist.github.com/leriomaggio/c64c32dbe2d556317322#pycon]()
-*  **Traninngs**: [https://gist.github.com/leriomaggio/c64c32dbe2d556317322#trainings]()
-*  **Django Village**: [https://gist.github.com/leriomaggio/c64c32dbe2d556317322#djangovillage]()
-*  **PyData**: [https://gist.github.com/leriomaggio/c64c32dbe2d556317322#pydata]()
-*  **Odoo**: [https://gist.github.com/leriomaggio/c64c32dbe2d556317322#odoo]()
+*  **Main Conference Talks**: [https://gist.github.com/leriomaggio/c64c32dbe2d556317322#pycon](https://gist.github.com/leriomaggio/c64c32dbe2d556317322#pycon)
+*  **Traninngs**: [https://gist.github.com/leriomaggio/c64c32dbe2d556317322#trainings](https://gist.github.com/leriomaggio/c64c32dbe2d556317322#trainings)
+*  **Django Village**: [https://gist.github.com/leriomaggio/c64c32dbe2d556317322#djangovillage](https://gist.github.com/leriomaggio/c64c32dbe2d556317322#djangovillage)
+*  **PyData**: [https://gist.github.com/leriomaggio/c64c32dbe2d556317322#pydata](https://gist.github.com/leriomaggio/c64c32dbe2d556317322#pydata)
+*  **Odoo**: [https://gist.github.com/leriomaggio/c64c32dbe2d556317322#odoo](https://gist.github.com/leriomaggio/c64c32dbe2d556317322#odoo)
