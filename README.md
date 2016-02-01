@@ -7,4 +7,11 @@
 Community Voting Results and Rankings of Talks proposed at PyCon Sette: [http://pycon.it]()
 
 * **Notebook**: [Conference Talks Rankings](Conference Talks Rankings.ipynb)
-* **GitHub** [**GIST**](https://gist.github.com/leriomaggio/c64c32dbe2d556317322)
+
+## All the Rankings: ##
+
+*  **Main Conference Talks**: [https://gist.github.com/leriomaggio/c64c32dbe2d556317322#pycon]()
+*  **Traninngs**: [https://gist.github.com/leriomaggio/c64c32dbe2d556317322#trainings]()
+*  **Django Village**: [https://gist.github.com/leriomaggio/c64c32dbe2d556317322#djangovillage]()
+*  **PyData**: [https://gist.github.com/leriomaggio/c64c32dbe2d556317322#pydata]()
+*  **Odoo**: [https://gist.github.com/leriomaggio/c64c32dbe2d556317322#odoo]()
