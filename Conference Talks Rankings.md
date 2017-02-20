@@ -1830,7 +1830,7 @@ rankings
       <th>178</th>
       <td>Talk</td>
       <td>45</td>
-      <td>PyWeb</td>
+      <td>PyBusiness</td>
       <td>it</td>
       <td>Wargame web app - Odoo come framework di sviluppo</td>
       <td>Nicola Malcontenti</td>
@@ -3716,16 +3716,6 @@ pyweb
     <tr>
       <th>46</th>
       <td>Talk</td>
-      <td>45</td>
-      <td>PyWeb</td>
-      <td>it</td>
-      <td>Wargame web app - Odoo come framework di sviluppo</td>
-      <td>Nicola Malcontenti</td>
-      <td>👨‍💻</td>
-    </tr>
-    <tr>
-      <th>47</th>
-      <td>Talk</td>
       <td>30</td>
       <td>PyWeb</td>
       <td>en</td>
@@ -3744,7 +3734,7 @@ pyweb
 print('Number of Talks Proposed: ', pyweb.index.size)
 ```
 
-    Number of Talks Proposed:  47
+    Number of Talks Proposed:  46
 
 
 <a name="pybusiness"></a>
@@ -3871,6 +3861,16 @@ pybusiness
       <td>45</td>
       <td>PyBusiness</td>
       <td>it</td>
+      <td>Wargame web app - Odoo come framework di sviluppo</td>
+      <td>Nicola Malcontenti</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyBusiness</td>
+      <td>it</td>
       <td>Usare Erpy da applicazioni esterne</td>
       <td>Giovanni Porcari</td>
       <td>👨‍💻</td>
@@ -3886,7 +3886,7 @@ pybusiness
 print('Number of Talks Proposed: ', pybusiness.index.size)
 ```
 
-    Number of Talks Proposed:  10
+    Number of Talks Proposed:  11
 
 
 <a name="pydb"></a>

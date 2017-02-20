@@ -178,6 +178,6 @@ Idx~TID~Type~Duration~Group~Lang~Title~Speakers~Gender
 176~1243~Talk~30~PyWeb~en~Addons: I can solve 90% of your problems. The other 90% are up to you.~Stefan Foulis~male
 177~1140~Talk~45~PyData~en~ADENINE: A Data ExploratioN pIpeliNE~Samuele Fiorini~male
 178~1222~Talk~30~PyCommunity~en~People Are Coming To My Beginning Workshop, What Now?~Nicholle James~female
-179~1169~Talk~45~PyWeb~it~Wargame web app - Odoo come framework di sviluppo~Nicola Malcontenti~male
+179~1169~Talk~45~PyBusiness~it~Wargame web app - Odoo come framework di sviluppo~Nicola Malcontenti~male
 180~1168~Talk~45~PyBusiness~it~Usare Erpy da applicazioni esterne~Giovanni Porcari~male
 181~1220~Talk~30~PyWeb~en~Using SASS in Django~Jacob Rief~male
