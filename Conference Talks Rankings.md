@@ -1,6 +1,6 @@
 
-<div style="background-color:#000"> 
-    <img src='logos/pycon7.png' width='50%' />
+<div style="background-color: rgb(51, 51, 51)"> 
+    <img src='logos/pycon8.png' width='50%' />
 </div>
 
 
@@ -16,11 +16,15 @@ import numpy as np
 
 
 ```python
-rankings = pd.read_csv('./ranking.txt', sep=' - ', engine='python', skiprows=1, 
-                       names=('talk_id', 'type', 'track', 'lang', 'title', 'speaker'), 
-                       index_col=0)
-rankings.drop('talk_id', axis=1, inplace=True)
+rankings = pd.read_csv('./ranking.txt', sep='~', skiprows=1, header=0)
 
+rankings.drop('TID', axis=1, inplace=True)
+rankings.drop('Idx', axis=1, inplace=True)
+
+rankings.Gender = rankings.Gender.apply(lambda g: '+'.join('\U0001f469\u200d\U0001f4bb' if l=='female' else '\U0001f468\u200d\U0001f4bb' 
+                                         for l in g.split(',')))
+pd.set_option('display.max_rows', rankings.index.size)
+pd.set_option('display.max_colwidth', 200)
 rankings
 ```
 
@@ -32,505 +36,1828 @@ rankings
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>type</th>
-      <th>track</th>
-      <th>lang</th>
-      <th>title</th>
-      <th>speaker</th>
+      <th>Type</th>
+      <th>Duration</th>
+      <th>Group</th>
+      <th>Lang</th>
+      <th>Title</th>
+      <th>Speakers</th>
+      <th>Gender</th>
     </tr>
   </thead>
   <tbody>
     <tr>
+      <th>0</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>it</td>
+      <td>AI, Machine Learning e Deep Learning: cosa cambia?</td>
+      <td>Antonio Spadaro</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
       <th>1</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
+      <td>90</td>
+      <td>PyCommunity</td>
       <td>it</td>
-      <td>Gestione di errori ed eccezioni in Python 2 e ...</td>
-      <td>Alex Martelli</td>
+      <td>L’Italia, python e la chimera dell’Agile</td>
+      <td>Gabriele Giaccari</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Training</td>
-      <td>Python &amp; Friends</td>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
       <td>en</td>
-      <td>Beautiful async code in Python 3</td>
-      <td>Anton Caceres</td>
+      <td>Facial Analysis Techniques for Pythonista (and beyond!)</td>
+      <td>Alex Casalboni</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Training</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Docker: dalla build a production</td>
-      <td>Davide Setti</td>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyLang</td>
+      <td>en</td>
+      <td>Performant Python</td>
+      <td>Burkhard Kloss</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Domotica a cinque euro con Raspberry Pi Zero e...</td>
-      <td>Anna Chiara Bellini</td>
+      <td>45</td>
+      <td>PyLang</td>
+      <td>en</td>
+      <td>Demystifying Decorators</td>
+      <td>Akul Mehra</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>5</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
+      <td>45</td>
+      <td>PyData</td>
       <td>en</td>
-      <td>Exception and error handling in Python 2 and P...</td>
-      <td>Alex Martelli</td>
+      <td>Solving the Rubiks Cube with Python</td>
+      <td>Daan van Berkel</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>6</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Capire i Decoratori</td>
-      <td>Ezio Melotti</td>
+      <td>45</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Building Serverless applications with Python</td>
+      <td>Andrii Soldatenko</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>7</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Ripensare la programmazione: un approccio funz...</td>
-      <td>Francesco Bruni</td>
+      <td>60</td>
+      <td>PyData</td>
+      <td>en</td>
+      <td>Deep Learning made easy</td>
+      <td>Jalem Raj Rohit</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>8</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Delivery isn't magic anymore: distribuisci le ...</td>
-      <td>Alan Franzoni</td>
+      <td>60</td>
+      <td>PyData</td>
+      <td>en</td>
+      <td>The unconventional Introduction to Deep Learning</td>
+      <td>Valerio Maggio</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>Talk</td>
+      <td>Training</td>
+      <td>240</td>
       <td>PyData</td>
-      <td>it</td>
-      <td>Reti Neurali in Python</td>
-      <td>Simone Piunno</td>
+      <td>en</td>
+      <td>Deep Learning, the Keras way</td>
+      <td>Valerio Maggio</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>10</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Mischiare threads e fork sotto unix: cose da f...</td>
-      <td>Enrico Franchi</td>
+      <td>60</td>
+      <td>PyData</td>
+      <td>en</td>
+      <td>A Gentle Introduction to Neural Networks (with Python)</td>
+      <td>Tariq Rashid</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>11</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Big data con PostgreSQL</td>
-      <td>Giuseppe Broccolo</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>en</td>
+      <td>Introduction to Data-Analysis with Pandas</td>
+      <td>Alexander Hendorf</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>12</th>
       <td>Talk</td>
-      <td>DjangoVillage</td>
-      <td>en</td>
-      <td>Dockerizing Django projects</td>
-      <td>Roberto Rosario</td>
+      <td>60</td>
+      <td>PyData</td>
+      <td>it</td>
+      <td>Machine Learning con Python: previsione in real-time della richiesta di energia elettrica</td>
+      <td>Felice Tuosto</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>13</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>en</td>
-      <td>Continuous delivery of a Python web project wi...</td>
-      <td>Joost Cassee</td>
+      <td>45</td>
+      <td>PyWeb</td>
+      <td>it</td>
+      <td>Create a serverless infrastructure for data collection with Python and AWS</td>
+      <td>David Santucci</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>14</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
+      <td>30</td>
+      <td>PyLang</td>
       <td>en</td>
-      <td>$5 Home Automation with Raspberry Pi Zero and ...</td>
-      <td>Anna Chiara Bellini</td>
+      <td>Tales from the Crypt: A Cryptography Primer</td>
+      <td>Adam Englander</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>15</th>
       <td>Talk</td>
-      <td>PyData</td>
-      <td>en</td>
-      <td>Time Travel and Time Series Analysis with pand...</td>
-      <td>Alexander Hendorf</td>
+      <td>45</td>
+      <td>PyLang</td>
+      <td>it</td>
+      <td>ByteCode al supporto dei test per protocolli ed enforcing di best practices</td>
+      <td>Alessandro Molina</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>16</th>
-      <td>Training</td>
-      <td>Python &amp; Friends</td>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyLang</td>
       <td>en</td>
-      <td>Computer Graphics per aspiranti game-developer...</td>
-      <td>Roberto De Ioris</td>
+      <td>Solving the web most popular code shortening competition with Python 3</td>
+      <td>Alessandro Amici</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>17</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
+      <td>45</td>
+      <td>PyData</td>
       <td>it</td>
-      <td>EuroCotoletta 2017</td>
-      <td>Christian Barra</td>
+      <td>Affrontare le sfide del cambiamento climatico con Python</td>
+      <td>Alessandro Amici</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>18</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
+      <td>45</td>
+      <td>PyData</td>
       <td>en</td>
-      <td>Mixing multiprocessing and threads in the UNIX...</td>
-      <td>Enrico Franchi</td>
+      <td>Time Series Analysis with Pandas</td>
+      <td>Alexander Hendorf</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>19</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>en</td>
-      <td>Introduction of aiohttp</td>
-      <td>Andrew Svetlov</td>
+      <td>45</td>
+      <td>PyLang</td>
+      <td>it</td>
+      <td>Unreal Engine 4 e Python: Ora si Puo'</td>
+      <td>Roberto De Ioris</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>20</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>en</td>
-      <td>Understanding Decorators</td>
-      <td>Ezio Melotti</td>
+      <td>60</td>
+      <td>PyData</td>
+      <td>it</td>
+      <td>Machine Learning con Python: algoritmi NILM e real-time processing</td>
+      <td>Felice Tuosto</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>21</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
+      <td>45</td>
+      <td>PyData</td>
       <td>en</td>
-      <td>Building an asynchronous websocket server</td>
-      <td>Tatiana Al-Chueyr</td>
+      <td>OpenCV for face detection</td>
+      <td>Ken Alger</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>22</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
+      <td>60</td>
+      <td>PyDatabase</td>
       <td>it</td>
-      <td>La vita di uno sviluppatore di free software</td>
-      <td>Riccardo Magliocchetti</td>
+      <td>Digital Analytics Data Aggregation: un case study dal mondo reale utilizzando SQL, NoSQL e Pandas</td>
+      <td>Alessandro Pelliciari</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>23</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Abstract Base Classes: un uso intelligente del...</td>
-      <td>Leonardo Giordani</td>
+      <td>45</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>Is it too late to learn how to program and how being a developer change my life</td>
+      <td>Alicia Carr</td>
+      <td>👩‍💻</td>
     </tr>
     <tr>
       <th>24</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>en</td>
-      <td>Strings don't exist</td>
-      <td>Martin Matusiak</td>
+      <td>45</td>
+      <td>PyCommunity</td>
+      <td>it</td>
+      <td>Perché Python fa schifo!</td>
+      <td>Antonio Spadaro</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>25</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>en</td>
-      <td>Tox as project descriptor: not only Continuous...</td>
-      <td>Roberto Polli</td>
+      <td>45</td>
+      <td>PyWeb</td>
+      <td>it</td>
+      <td>Indicizzare e ricercare tonnellate di dati con ElasticSearch e Django</td>
+      <td>Ernesto Arbitrio</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>26</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
+      <td>45</td>
+      <td>PyWeb</td>
       <td>it</td>
-      <td>Ansible: automazione IT vocata al Cloud</td>
-      <td>Ivan Rossi</td>
+      <td>Django Rest Framework - Tips&amp;Tricks</td>
+      <td>Luca Zacchetti</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>27</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Comando di un robot con Python</td>
-      <td>Antonio Spadaro</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>en</td>
+      <td>How to turn Wikipedia into a Quiz Game</td>
+      <td>Andrea Cappelli, Roberto Turrin</td>
+      <td>👨‍💻+👨‍💻</td>
     </tr>
     <tr>
       <th>28</th>
       <td>Talk</td>
-      <td>PyData</td>
+      <td>30</td>
+      <td>PyWeb</td>
       <td>en</td>
-      <td>Building Data Pipelines in Python</td>
-      <td>Marco Bonzanini</td>
+      <td>Out of Sight, Out of Mind: Survival tricks and tools for remote developers</td>
+      <td>Alessio Bragadini</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>29</th>
       <td>Talk</td>
+      <td>60</td>
       <td>PyData</td>
-      <td>en</td>
-      <td>%%async_run: an IPython notebook magic for asy...</td>
-      <td>Valerio Maggio</td>
+      <td>it</td>
+      <td>Where are you going? An overview on machine learning models for human mobility</td>
+      <td>Gianni Barlacchi</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>30</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Pglogical: il futuro della replica con Postgres</td>
-      <td>Marco Nenciarini</td>
+      <td>45</td>
+      <td>PyLang</td>
+      <td>en</td>
+      <td>Python on $5 IoT Device</td>
+      <td>Ken Alger</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
+      <th>31</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyData</td>
+      <td>it</td>
+      <td>Tensor decomposition with Python: Learning structures from multidimensional data</td>
+      <td>André Panisson</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>en</td>
+      <td>An Introduction to Pandas for Data Analysis in Python</td>
+      <td>Ayush Kumar Singh</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>Training</td>
+      <td>240</td>
+      <td>PyLang</td>
+      <td>en</td>
+      <td>4️⃣ ore di Silenzio 😶 Assoluto 🛌 😴💤</td>
+      <td>Carlo🍺 Miron🍺</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyLang</td>
+      <td>en</td>
+      <td>PyPy Status Update</td>
+      <td>Antonio Cuni</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Crash test of Django ORM</td>
+      <td>Andrii Soldatenko</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Understanding Serverless Architecture</td>
+      <td>Jalem Raj Rohit</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyWeb</td>
+      <td>it</td>
+      <td>Getting started with requests HTTP library</td>
+      <td>Andrea Grandi</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>en</td>
+      <td>Basic principles of scientific data visualization</td>
+      <td>Giuseppe Jurman</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyWeb</td>
+      <td>it</td>
+      <td>Serverless computing con Python e AWS</td>
+      <td>Federico Caboni</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyLang</td>
+      <td>en</td>
+      <td>Behavioral Driven Development: Tame the Beast</td>
+      <td>Adam Englander</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>en</td>
+      <td>Explore the brain with Nilearn</td>
+      <td>Darya Chyzhyk</td>
+      <td>👩‍💻</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>en</td>
+      <td>An Introduction to Feature Selection in Machine Learning using Python</td>
+      <td>Rahul Baboota</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>it</td>
+      <td>Word Embedding: come codificare il linguaggio naturale per algoritmi di previsione e classificazione</td>
+      <td>Felice Tuosto, Andrea Ianni</td>
+      <td>👨‍💻+👨‍💻</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>Training</td>
+      <td>240</td>
+      <td>PyData</td>
+      <td>en</td>
+      <td>Intro to Natural Language Processing in Python</td>
+      <td>Marco Bonzanini</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyData</td>
+      <td>en</td>
+      <td>The Journey Of aeneas: A Python Adventure In Text and Speech</td>
+      <td>Alberto Pettarin</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>Python in Africa</td>
+      <td>Anna Makarudze</td>
+      <td>👩‍💻</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyLang</td>
+      <td>it</td>
+      <td>Python e swift: linguaggi a confronto</td>
+      <td>Lelio Campanile</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>en</td>
+      <td>Jupyter: if you don't use it yet you're doing wrong</td>
+      <td>Christian Barra</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyWeb</td>
+      <td>it</td>
+      <td>Deploy automatizzato di un progetto Python 3/Django con Ansible</td>
+      <td>Marco Santamaria</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>From Idea to Presentation: How to Prepare a Conference Talk</td>
+      <td>Anna Ossowski</td>
+      <td>👩‍💻</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyCommunity</td>
+      <td>it</td>
+      <td>E.T. chiama Python</td>
+      <td>Davide Corio</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>52</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Serverless computing with Python and AWS</td>
+      <td>Federico Caboni</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Why I still develop synchronous web in the asyncIO era</td>
+      <td>Giovanni Barillari</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>54</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>Be(come) a Mentor! Help Others Succeed!</td>
+      <td>Anna Ossowski</td>
+      <td>👩‍💻</td>
+    </tr>
+    <tr>
+      <th>55</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyLang</td>
+      <td>en</td>
+      <td>Test Driven Deployment with Ansible 2.</td>
+      <td>Roberto Polli</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>No Coding Skills Required: How to Contribute to Open Source in Other Ways</td>
+      <td>Anna Ossowski</td>
+      <td>👩‍💻</td>
+    </tr>
+    <tr>
+      <th>57</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Django among modern web frameworks – was Angular2 a good choice?</td>
+      <td>Andrzej Krawczyk</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>58</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyLang</td>
+      <td>en</td>
+      <td>42 PyCharm Tips and Tricks</td>
+      <td>Dmitry Trofimov</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>59</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>An Introduction to web scraping using Python</td>
+      <td>Manoj Pandey</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>60</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyWeb</td>
+      <td>it</td>
+      <td>Perché sviluppo ancora web sincrono nell'era dell'asyncIO</td>
+      <td>Giovanni Barillari</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyBusiness</td>
+      <td>it</td>
+      <td>Realizzare stampe HTML e PDF usando solo Python</td>
+      <td>Saverio Porcari</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>62</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyLang</td>
+      <td>it</td>
+      <td>Chat Bot in Telegram (e slack e altri)</td>
+      <td>Lorenzo Buonanno, Tommaso Sartor</td>
+      <td>👨‍💻+👨‍💻</td>
+    </tr>
+    <tr>
+      <th>63</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Django and the testing pyramid</td>
+      <td>Aaron Bassett</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>64</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>Growing a Python community</td>
+      <td>Anton Caceres</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>65</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>en</td>
+      <td>Sparking Pandas: an experiment</td>
+      <td>Francesco Bruni</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>66</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Data loss prevention in modern web applications</td>
+      <td>Xavier Dutreilh</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>67</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>Don't try to look smart. Be smart</td>
+      <td>Flavio Percoco</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>68</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Amazon Web Services for dummies - tips and tricks</td>
+      <td>Justyna Janczyszyn</td>
+      <td>👩‍💻</td>
+    </tr>
+    <tr>
+      <th>69</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>Compassionate Code Reviews</td>
+      <td>April Wensel</td>
+      <td>👩‍💻</td>
+    </tr>
+    <tr>
+      <th>70</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyWeb</td>
+      <td>it</td>
+      <td>OpneSSH SFTP service con Python: pysftpserver.</td>
+      <td>Filippo Morelli</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>71</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>Rants and Ruminations From A Job Applicant After 💯 CS Job Interviews in Silicon Valley</td>
+      <td>Susan Tan</td>
+      <td>👩‍💻</td>
+    </tr>
+    <tr>
+      <th>72</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyWeb</td>
+      <td>it</td>
+      <td>Amazon Web Services per i principianti - consigli e trucchi</td>
+      <td>Justyna Janczyszyn</td>
+      <td>👩‍💻</td>
+    </tr>
+    <tr>
+      <th>73</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyLang</td>
+      <td>it</td>
+      <td>Creare videogiochi per smartphone con Kivy</td>
+      <td>Rigel Di Scala</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>74</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyLang</td>
+      <td>it</td>
+      <td>Rusty Python</td>
+      <td>Matteo Bertini</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>75</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>en</td>
+      <td>Space weather monitoring for a simulation of a Martian settlement based on Virtual Reality</td>
+      <td>Giovanni Bruno</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyDatabase</td>
+      <td>it</td>
+      <td>Full Text Search con PostgreSQL</td>
+      <td>Giuseppe Broccolo</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>77</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyDatabase</td>
+      <td>it</td>
+      <td>Disaster recovery: una serie di sfortunati eventi</td>
+      <td>Giulio Calacoci</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>Training</td>
+      <td>240</td>
+      <td>PyLang</td>
+      <td>it</td>
+      <td>Scrivere Chat Bot per Telegram e Slack</td>
+      <td>Lorenzo Buonanno, Tommaso Sartor</td>
+      <td>👨‍💻+👨‍💻</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>The Hidden Power Dynamics of Open Source</td>
+      <td>Anna Ossowski</td>
+      <td>👩‍💻</td>
+    </tr>
+    <tr>
+      <th>80</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>en</td>
+      <td>Catching Neutrinos with Python and KM3NeT</td>
+      <td>Tamás Gál</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>81</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyLang</td>
+      <td>it</td>
+      <td>Svilluppare con python sull'iPad</td>
+      <td>Lelio Campanile</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>it</td>
+      <td>Il Viaggio di aeneas: Un'Avventura Con Python Tra Testo e Parlato</td>
+      <td>Alberto Pettarin</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>83</th>
       <td>Talk</td>
-      <td>PyData</td>
-      <td>it</td>
-      <td>Aiuto !!! Ho un dataset "squilibrato" !</td>
-      <td>Christian Barra</td>
+      <td>45</td>
+      <td>PyLang</td>
+      <td>en</td>
+      <td>Just one Shade of OpenStack</td>
+      <td>Roberto Polli</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>84</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
+      <td>60</td>
+      <td>PyDatabase</td>
       <td>it</td>
-      <td>Autocompletamento per Blender Game Engine logic</td>
-      <td>Anna Chiara Bellini</td>
+      <td>Python e PostgreSQL, un connubio perfetto</td>
+      <td>Marco Nenciarini</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>85</th>
       <td>Talk</td>
-      <td>PyData</td>
-      <td>it</td>
-      <td>Introduzione a Orange Data Mining</td>
-      <td>Eric Bonfadini</td>
+      <td>30</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>Applying the unix philosophy to django projects: a report from the real world</td>
+      <td>Federico Capoano</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>86</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
+      <td>45</td>
+      <td>PyCommunity</td>
       <td>it</td>
-      <td>Python come Hardware Description Language</td>
-      <td>Paolo Guadagnuolo</td>
+      <td>Taiga e l’agile project management: join the Oompa Loompas’ Army!</td>
+      <td>Gabriele Giaccari</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>87</th>
       <td>Talk</td>
-      <td>DjangoVillage</td>
-      <td>it</td>
-      <td>Progetti acceptance test-driven con Django</td>
-      <td>Peter Bittner</td>
+      <td>45</td>
+      <td>PyLang</td>
+      <td>en</td>
+      <td>Plugin Based Chat Bots in Telegram (and Slack and others)</td>
+      <td>Lorenzo Buonanno, Tommaso Sartor</td>
+      <td>👨‍💻+👨‍💻</td>
     </tr>
     <tr>
       <th>88</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
+      <td>45</td>
+      <td>PyBusiness</td>
       <td>it</td>
-      <td>Fate RPG: una web application per giocarlo onl...</td>
-      <td>Saverio Porcari</td>
+      <td>Da applicativi Desktop a Web</td>
+      <td>Luigi Renna</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>89</th>
-      <td>Training</td>
-      <td>Python &amp; Friends</td>
-      <td>en</td>
-      <td>Dive into object-oriented Python</td>
-      <td>Leonardo Giordani</td>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyWeb</td>
+      <td>it</td>
+      <td>Open edX, soluzione per l'e-learning basata su Django</td>
+      <td>Davide Corio</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>90</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
+      <td>45</td>
+      <td>PyWeb</td>
       <td>en</td>
-      <td>From Java to Python</td>
-      <td>OFFER SHARABI</td>
+      <td>Automated deploy of a Python 3/Django project with Ansible</td>
+      <td>Marco Santamaria</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>91</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Monitoraggio delle Risorse con Zabbix e Python</td>
-      <td>Massimiliano Cuzzoli</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Type uWSGI; press enter; what happens?</td>
+      <td>Philip James</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>92</th>
       <td>Talk</td>
-      <td>DjangoVillage</td>
-      <td>it</td>
-      <td>Django e frontend? Gulp! Razionalizzare la ges...</td>
-      <td>Alberto Motta</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Planet friendly web development with Django</td>
+      <td>Chris Adams</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>93</th>
       <td>Talk</td>
-      <td>PyData</td>
+      <td>60</td>
+      <td>PyWeb</td>
       <td>it</td>
-      <td>In-Database analytics with python and monetdb</td>
-      <td>Danilo Maurizio</td>
+      <td>weppy: il framework web per umani</td>
+      <td>Giovanni Barillari</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>94</th>
       <td>Talk</td>
+      <td>45</td>
       <td>PyData</td>
-      <td>it</td>
-      <td>Lezioni devops per data scientist</td>
-      <td>Luca Mearelli</td>
+      <td>en</td>
+      <td>Word Embeddings for Natural Language Processing in Python</td>
+      <td>Marco Bonzanini</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>95</th>
       <td>Talk</td>
-      <td>DjangoVillage</td>
+      <td>45</td>
+      <td>PyCommunity</td>
       <td>en</td>
-      <td>Acceptance Test-driven Projects With Django</td>
-      <td>Peter Bittner</td>
+      <td>Scientific Hooliganism: lessons from the first hack in history</td>
+      <td>Lilly Ryan</td>
+      <td>👩‍💻</td>
     </tr>
     <tr>
       <th>96</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Come passare indenni (o quasi) la traversata d...</td>
-      <td>Ugo Scaiella</td>
+      <td>30</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>Threading Yarn, Writing Code: What Traditional Arts and Crafts Can Teach Us About Programming</td>
+      <td>Anna Ossowski</td>
+      <td>👩‍💻</td>
     </tr>
     <tr>
       <th>97</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
+      <td>45</td>
+      <td>PyLang</td>
       <td>en</td>
-      <td>Blender Game Engine logic and autocompletion</td>
-      <td>Anna Chiara Bellini</td>
+      <td>Attack of Pythons : Gotchas and Landmines in Python</td>
+      <td>Manoj Pandey</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>98</th>
-      <td>Training</td>
-      <td>DjangoVillage</td>
-      <td>it</td>
-      <td>Rendi scalabile la tua app django</td>
-      <td>Marco Paolini</td>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Presenting pysftpserver: OpenSSH SFTP service with Python.</td>
+      <td>Filippo Morelli</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>99</th>
       <td>Talk</td>
-      <td>DjangoVillage</td>
-      <td>it</td>
-      <td>Viaggiare leggeri col proprio progetto Django</td>
-      <td>Riccardo Magliocchetti</td>
+      <td>30</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>Navigating unconscious bias</td>
+      <td>Anna Schneider</td>
+      <td>👩‍💻</td>
     </tr>
     <tr>
       <th>100</th>
       <td>Talk</td>
-      <td>PyData</td>
-      <td>it</td>
-      <td>HPC con Python: istruzioni per l'uso</td>
-      <td>Nicola Creati</td>
+      <td>30</td>
+      <td>PyLang</td>
+      <td>en</td>
+      <td>Loop better: a deeper look at iteration in Python</td>
+      <td>Trey Hunner</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>101</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>en</td>
-      <td>Resource Monitoring with Zabbix and Python</td>
-      <td>Massimiliano Cuzzoli</td>
+      <td>60</td>
+      <td>PyData</td>
+      <td>it</td>
+      <td>Validazione e decodifica di file XML con Python</td>
+      <td>Davide Brunato</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>102</th>
       <td>Talk</td>
-      <td>DjangoVillage</td>
+      <td>60</td>
+      <td>PyData</td>
       <td>it</td>
-      <td>Pytest &amp; Django are really good friends!!</td>
-      <td>Simone Dalla</td>
+      <td>Dai dati alla visualizzazione: la mia prima data pipeline</td>
+      <td>Riccardo Magliocchetti</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>103</th>
       <td>Talk</td>
-      <td>DjangoVillage</td>
+      <td>45</td>
+      <td>PyWeb</td>
       <td>it</td>
-      <td>django SHOP è ritornato</td>
-      <td>Jacob Rief</td>
+      <td>Django nella giungla Javascript</td>
+      <td>Patrick Guido Arminio</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>104</th>
       <td>Talk</td>
-      <td>DjangoVillage</td>
-      <td>en</td>
-      <td>djangoSHOP is back</td>
-      <td>Jacob Rief</td>
+      <td>45</td>
+      <td>PyDatabase</td>
+      <td>it</td>
+      <td>Ricerca full text in Django con PostgreSQL</td>
+      <td>Paolo Melchiorre</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>105</th>
-      <td>Talk</td>
-      <td>DjangoVillage</td>
-      <td>it</td>
-      <td>Django 💖Gulp</td>
-      <td>Mattia Larentis</td>
+      <td>Training</td>
+      <td>240</td>
+      <td>PyData</td>
+      <td>en</td>
+      <td>Supervised learning in high dimensional data: from zero to ℵ-0</td>
+      <td>Matteo Barbieri</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>106</th>
       <td>Talk</td>
-      <td>Odoo</td>
-      <td>it</td>
-      <td>Odoo in Italia: La suite di applicazioni busin...</td>
-      <td>Mario Riva</td>
+      <td>45</td>
+      <td>PyLang</td>
+      <td>en</td>
+      <td>Ansible roles, private git repos and the Ansible Galaxy tool</td>
+      <td>Serena Lorenzini</td>
+      <td>👩‍💻</td>
     </tr>
     <tr>
       <th>107</th>
-      <td>Talk</td>
-      <td>Odoo</td>
-      <td>it</td>
-      <td>Primi passi in Odoo dev</td>
-      <td>Eliumara Lopez</td>
+      <td>Training</td>
+      <td>240</td>
+      <td>PyLang</td>
+      <td>en</td>
+      <td>Writing Plugin Based Chat Bots in Telegram (and Slack)</td>
+      <td>Lorenzo Buonanno, Tommaso Sartor</td>
+      <td>👨‍💻+👨‍💻</td>
     </tr>
     <tr>
       <th>108</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>jmb.mailup, uno strumento semplice per interfa...</td>
-      <td>Benedetto Campanale</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>en</td>
+      <td>How to use pandas the wrong way</td>
+      <td>Pietro Battiston</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>109</th>
       <td>Talk</td>
-      <td>Odoo</td>
-      <td>it</td>
-      <td>Sviluppare su Odoo</td>
-      <td>Nicola Malcontenti</td>
+      <td>30</td>
+      <td>PyLang</td>
+      <td>en</td>
+      <td>Comprehensible Comprehensions</td>
+      <td>Trey Hunner</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>110</th>
       <td>Talk</td>
-      <td>Odoo</td>
-      <td>it</td>
-      <td>OCA, la community internazionale di Odoo: Come...</td>
-      <td>Alex Comba</td>
+      <td>60</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>E.T. phone Python</td>
+      <td>Davide Corio</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>111</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Perl6 is here to rest!</td>
-      <td>David Mugnai</td>
+      <td>30</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>Leading an open source project as a startup.</td>
+      <td>Nicolas Garnier</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>112</th>
       <td>Talk</td>
-      <td>Odoo</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>The hard long journey of submitting a form</td>
+      <td>Filipe de Alencar Ximenes</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>113</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>Security Starts With You: Social Engineering</td>
+      <td>Tiberius Hefflin</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>114</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>How Not To Password</td>
+      <td>Tiberius Hefflin</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>115</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Infrastructure as Code with Terraform</td>
+      <td>Justyna Janczyszyn</td>
+      <td>👩‍💻</td>
+    </tr>
+    <tr>
+      <th>116</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>The mullet architecture - Elasticsearch in the front, Postgres in the back</td>
+      <td>Honza Král</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>117</th>
+      <td>Training</td>
+      <td>240</td>
+      <td>PyLang</td>
+      <td>en</td>
+      <td>Costruiamo l’Internet dei Robot</td>
+      <td>Ludovico Orlando Russo</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>118</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyLang</td>
       <td>it</td>
-      <td>Gestione di un Consorzio con Odoo</td>
-      <td>Piero Cecchi</td>
+      <td>Rules of thumb to test the documentation</td>
+      <td>Marco Buttu</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>119</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyWeb</td>
+      <td>it</td>
+      <td>Infrastruttura come codice con Terraform</td>
+      <td>Justyna Janczyszyn</td>
+      <td>👩‍💻</td>
+    </tr>
+    <tr>
+      <th>120</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Geospatial three amigos: Python, Leaflet, and ElasticSearch</td>
+      <td>Roberto Rosario</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>121</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>ZimboPy: Empowering Zimbabwean Girls As Change Makers</td>
+      <td>Marlene Mhangami</td>
+      <td>👩‍💻</td>
+    </tr>
+    <tr>
+      <th>122</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyLang</td>
+      <td>en</td>
+      <td>Continuous Delivery for Iot with Python and Iottly</td>
+      <td>Stefano Terna</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>123</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyLang</td>
+      <td>en</td>
+      <td>Python, Locales and Writing Systems</td>
+      <td>Rae Knowler</td>
+      <td>👩‍💻</td>
+    </tr>
+    <tr>
+      <th>124</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Django Admin - The Swiss Army Knife</td>
+      <td>Prakash Kumar</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>125</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>Keeping up with the pace of a fast growing community without dying</td>
+      <td>Flavio Percoco</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>126</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyBusiness</td>
+      <td>it</td>
+      <td>Analisi dati e grafici in Genropy</td>
+      <td>Francesco Porcari</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>127</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyLang</td>
+      <td>it</td>
+      <td>Cross-platform game development with Kivy</td>
+      <td>Rigel Di Scala</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>128</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>Combating Impostor Syndrome</td>
+      <td>Ken Alger</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>129</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyWeb</td>
+      <td>it</td>
+      <td>MIT MicroMasters: come sviluppare una web application basata su servizi esterni.</td>
+      <td>Giovanni Di Milia</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>130</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyDatabase</td>
+      <td>it</td>
+      <td>PostgreSQL su NFS: miti e verità</td>
+      <td>Jonathan Battiato</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>131</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>it</td>
+      <td>Misura: Un sistema per il controllo strumentale, l'acquisizione dati ed il calcolo scientifico</td>
+      <td>Daniele Paganelli</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>132</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>en</td>
+      <td>The Wild West of Data Wrangling</td>
+      <td>Sarah Guido</td>
+      <td>👩‍💻</td>
+    </tr>
+    <tr>
+      <th>133</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyLang</td>
+      <td>it</td>
+      <td>Ansible: sviluppo e utilizzo di roles seguendo il modello di Ansible Galaxy</td>
+      <td>Serena Lorenzini</td>
+      <td>👩‍💻</td>
+    </tr>
+    <tr>
+      <th>134</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>it</td>
+      <td>Come usare male pandas</td>
+      <td>Pietro Battiston</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>135</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Serverlessness - augmenting your Django apps with Functions-as-a-Service</td>
+      <td>Tom Dyson</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>136</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>it</td>
+      <td>Monitoring Beach Morphology with Python</td>
+      <td>Luca Liberti</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>137</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyLang</td>
+      <td>en</td>
+      <td>Artistic Python: Mixing Python Programming with Fashion</td>
+      <td>Ria Baldevia</td>
+      <td>👩‍💻</td>
+    </tr>
+    <tr>
+      <th>138</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyLang</td>
+      <td>en</td>
+      <td>Python + Windows, like a boss</td>
+      <td>Nicola Iarocci</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>139</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyLang</td>
+      <td>it</td>
+      <td>Pilotare un braccio robotico dal cloud con GenroPy e Raspberry</td>
+      <td>Michele Bertoldi</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>140</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Qualities of great reusable Django apps</td>
+      <td>Flávio Juvenal da Silva Junior</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>141</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>en</td>
+      <td>Differential network analysis and graph classification: a glocal approach</td>
+      <td>Giuseppe Jurman</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>142</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>Never Accept the First Offer</td>
+      <td>Tiberius Hefflin</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>143</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyLang</td>
+      <td>en</td>
+      <td>Roboto Framework for Test Code Coverage for cloud services.</td>
+      <td>khushbu parakh</td>
+      <td>👩‍💻</td>
+    </tr>
+    <tr>
+      <th>144</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>it</td>
+      <td>RFLab - Controllo remoto strumentazione di un laboratorio nel settore delle microonde</td>
+      <td>Andrea Saba</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>145</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>weppy: the web framework for humans</td>
+      <td>Giovanni Barillari</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyBusiness</td>
+      <td>it</td>
+      <td>iCond: GenroPy per amministratori di condomini</td>
+      <td>Andrea Busanelli</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>147</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyBusiness</td>
+      <td>it</td>
+      <td>Sviluppo lato client con Odoo</td>
+      <td>Davide Corio</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>148</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>it</td>
+      <td>Fuzzy is the new sexy: a tour of scikit-fuzzy</td>
+      <td>Niccolo Raspa</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>149</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Scaling Django with Kubernetes</td>
+      <td>Saket Bhushan</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>150</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>Mastering Your Tools</td>
+      <td>Miguel Branco Palhas</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>151</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Beginning with django? Why you need to continue with django</td>
+      <td>Opetunde Adepoju</td>
+      <td>👩‍💻</td>
+    </tr>
+    <tr>
+      <th>152</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyLang</td>
+      <td>en</td>
+      <td>Awesome CLI</td>
+      <td>Mark Fink</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>153</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyLang</td>
+      <td>it</td>
+      <td>Creazione ed evoluzione di un framework per interfacce grafiche Multi-Touch con OpenGL</td>
+      <td>Tiziano Carotti</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>154</th>
+      <td>Training</td>
+      <td>240</td>
+      <td>PyBusiness</td>
+      <td>en</td>
+      <td>Creiamo un'applicazione per la gestione di ticket in Genropy</td>
+      <td>Francesco Porcari</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>155</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyBusiness</td>
+      <td>it</td>
+      <td>Form e Campi dinamici in Genropy</td>
+      <td>Francesco Porcari</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>156</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>it</td>
+      <td>Real-time Trajectory Optimization through contacts, a simple test case.</td>
+      <td>Tommaso Sartor</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>157</th>
+      <td>Training</td>
+      <td>240</td>
+      <td>PyData</td>
+      <td>it</td>
+      <td>Quando il saggio indica il cielo, pandas guarda l'indice</td>
+      <td>Pietro Battiston</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>158</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Migrating from JavaEE to Django: the OSIS case of embracing cultural and technical changes</td>
+      <td>Hildeberto Mendonca</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>159</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>Why the Internet Loves Cats</td>
+      <td>Tiberius Hefflin</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>160</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyLang</td>
+      <td>en</td>
+      <td>James and the Giant Forensics Toolkit</td>
+      <td>Tiberius Hefflin</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>161</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>Time Tracking is Hard</td>
+      <td>Sam Deng</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>162</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyDatabase</td>
+      <td>en</td>
+      <td>Taking care of PostgreSQL with Ansible</td>
+      <td>Rubens Souza</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>163</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>The Monster on the Project</td>
+      <td>Tiberius Hefflin</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>164</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyLang</td>
+      <td>it</td>
+      <td>ENVIFATE: plugin per QGIS per la valutazione del rischio di inquinamento ambientale</td>
+      <td>Francesco Geri</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>165</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Integrating the Bokeh library with Django</td>
+      <td>Ken Alger</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>166</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Preventing issues on Django with linters and tools</td>
+      <td>Flávio Juvenal da Silva Junior</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>167</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyBusiness</td>
+      <td>it</td>
+      <td>Genropy: 10 anni di sviluppo di un framework italiano</td>
+      <td>Giovanni Porcari</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>168</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyWeb</td>
+      <td>it</td>
+      <td>Django ORM in server TCP con backend multischema PostgreSQL</td>
+      <td>Luca Ferroni</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>169</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>it</td>
+      <td>LiFT - Un tagger di features per l’analisi multidimensionale di testi ottimizzato per PySpark</td>
+      <td>Michele Gabusi</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>170</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyLang</td>
+      <td>it</td>
+      <td>Terrain Generation in Python with Processing</td>
+      <td>Paolo Improta</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>171</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyBusiness</td>
+      <td>it</td>
+      <td>Genropy - Caso d'uso: gestione di una infrastruttura telefonica VoIP di medie/grandi dimensioni</td>
+      <td>Mauro Zanardi</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>172</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyBusiness</td>
+      <td>it</td>
+      <td>Un anno di Genropy</td>
+      <td>Muhammad Hassan Khurshid</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>173</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>Dial M For Mentor</td>
+      <td>Mariatta Wijaya</td>
+      <td>👩‍💻</td>
+    </tr>
+    <tr>
+      <th>174</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Deploying your django application using puppet</td>
+      <td>Krzysztof Żuraw</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>175</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Addons: I can solve 90% of your problems. The other 90% are up to you.</td>
+      <td>Stefan Foulis</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>176</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>en</td>
+      <td>ADENINE: A Data ExploratioN pIpeliNE</td>
+      <td>Samuele Fiorini</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>177</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>People Are Coming To My Beginning Workshop, What Now?</td>
+      <td>Nicholle James</td>
+      <td>👩‍💻</td>
+    </tr>
+    <tr>
+      <th>178</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyWeb</td>
+      <td>it</td>
+      <td>Wargame web app - Odoo come framework di sviluppo</td>
+      <td>Nicola Malcontenti</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>179</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyBusiness</td>
+      <td>it</td>
+      <td>Usare Erpy da applicazioni esterne</td>
+      <td>Giovanni Porcari</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>180</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Using SASS in Django</td>
+      <td>Jacob Rief</td>
+      <td>👨‍💻</td>
     </tr>
   </tbody>
 </table>
-<p>112 rows × 5 columns</p>
 </div>
 
 
@@ -540,7 +1867,7 @@ rankings
 
 
 ```python
-rankings[rankings['type'].values == 'Training']
+rankings[rankings['Type'].values == 'Training']
 ```
 
 
@@ -551,98 +1878,145 @@ rankings[rankings['type'].values == 'Training']
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>type</th>
-      <th>track</th>
-      <th>lang</th>
-      <th>title</th>
-      <th>speaker</th>
+      <th>Type</th>
+      <th>Duration</th>
+      <th>Group</th>
+      <th>Lang</th>
+      <th>Title</th>
+      <th>Speakers</th>
+      <th>Gender</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th>2</th>
+      <th>9</th>
       <td>Training</td>
-      <td>Python &amp; Friends</td>
+      <td>240</td>
+      <td>PyData</td>
       <td>en</td>
-      <td>Beautiful async code in Python 3</td>
-      <td>Anton Caceres</td>
+      <td>Deep Learning, the Keras way</td>
+      <td>Valerio Maggio</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>33</th>
       <td>Training</td>
-      <td>Python &amp; Friends</td>
+      <td>240</td>
+      <td>PyLang</td>
+      <td>en</td>
+      <td>4️⃣ ore di Silenzio 😶 Assoluto 🛌 😴💤</td>
+      <td>Carlo🍺 Miron🍺</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>Training</td>
+      <td>240</td>
+      <td>PyData</td>
+      <td>en</td>
+      <td>Intro to Natural Language Processing in Python</td>
+      <td>Marco Bonzanini</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>Training</td>
+      <td>240</td>
+      <td>PyLang</td>
       <td>it</td>
-      <td>Docker: dalla build a production</td>
-      <td>Davide Setti</td>
+      <td>Scrivere Chat Bot per Telegram e Slack</td>
+      <td>Lorenzo Buonanno, Tommaso Sartor</td>
+      <td>👨‍💻+👨‍💻</td>
     </tr>
     <tr>
-      <th>16</th>
+      <th>105</th>
       <td>Training</td>
-      <td>Python &amp; Friends</td>
+      <td>240</td>
+      <td>PyData</td>
       <td>en</td>
-      <td>Computer Graphics per aspiranti game-developer...</td>
-      <td>Roberto De Ioris</td>
+      <td>Supervised learning in high dimensional data: from zero to ℵ-0</td>
+      <td>Matteo Barbieri</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
-      <th>38</th>
+      <th>107</th>
       <td>Training</td>
-      <td>Python &amp; Friends</td>
+      <td>240</td>
+      <td>PyLang</td>
       <td>en</td>
-      <td>Python for System Administrators</td>
-      <td>Roberto Polli</td>
+      <td>Writing Plugin Based Chat Bots in Telegram (and Slack)</td>
+      <td>Lorenzo Buonanno, Tommaso Sartor</td>
+      <td>👨‍💻+👨‍💻</td>
     </tr>
     <tr>
-      <th>56</th>
+      <th>117</th>
       <td>Training</td>
-      <td>DjangoVillage</td>
+      <td>240</td>
+      <td>PyLang</td>
       <td>en</td>
-      <td>Scale and distribute your django backend app</td>
-      <td>Marco Paolini</td>
+      <td>Costruiamo l’Internet dei Robot</td>
+      <td>Ludovico Orlando Russo</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
-      <th>60</th>
+      <th>154</th>
       <td>Training</td>
-      <td>Python &amp; Friends</td>
+      <td>240</td>
+      <td>PyBusiness</td>
       <td>en</td>
-      <td>Master class for aiohttp usage</td>
-      <td>Andrew Svetlov</td>
-    </tr>
-    <tr>
-      <th>72</th>
-      <td>Training</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Dive into object-oriented Python</td>
-      <td>Leonardo Giordani</td>
-    </tr>
-    <tr>
-      <th>75</th>
-      <td>Training</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Genropy For Dummies</td>
+      <td>Creiamo un'applicazione per la gestione di ticket in Genropy</td>
       <td>Francesco Porcari</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
-      <th>89</th>
+      <th>157</th>
       <td>Training</td>
-      <td>Python &amp; Friends</td>
-      <td>en</td>
-      <td>Dive into object-oriented Python</td>
-      <td>Leonardo Giordani</td>
-    </tr>
-    <tr>
-      <th>98</th>
-      <td>Training</td>
-      <td>DjangoVillage</td>
+      <td>240</td>
+      <td>PyData</td>
       <td>it</td>
-      <td>Rendi scalabile la tua app django</td>
-      <td>Marco Paolini</td>
+      <td>Quando il saggio indica il cielo, pandas guarda l'indice</td>
+      <td>Pietro Battiston</td>
+      <td>👨‍💻</td>
     </tr>
   </tbody>
 </table>
 </div>
 
+
+
+## Speakers Stats
+
+
+```python
+from collections import defaultdict
+speakers = defaultdict(set)
+```
+
+
+```python
+for i, speaker in enumerate(rankings.Speakers.values):
+    for j, name in enumerate(speaker.split(',')):
+        gender = rankings.Gender[i].split('+')[j]
+        speakers[gender].add(name)
+```
+
+
+```python
+count_speakers = sum(len(s) for s in speakers.values())
+print(count_speakers)
+```
+
+    131
+
+
+
+```python
+for k in speakers:
+    print('{} --> {}'.format(k, len(speakers[k])))
+```
+
+    👨‍💻 --> 113
+    👩‍💻 --> 18
 
 
 <a name="talks"></a>
@@ -650,33 +2024,17 @@ rankings[rankings['type'].values == 'Training']
 
 
 ```python
-talks = rankings[rankings['type'].values == 'Talk']
+talks = rankings[rankings['Type'].values == 'Talk']
 ```
 
 <a name="pycon"></a>
-## Main Conference Track: (*aka Python & Friends*)
+##  `PyLang` 
 
 
 ```python
-
-np.arange(1, 56)
-```
-
-
-
-
-    array([ 1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16, 17,
-           18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34,
-           35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51,
-           52, 53, 54, 55])
-
-
-
-
-```python
-main_conf_talks = talks[talks['track'].values == 'Python & Friends']
-main_conf_talks.index = np.arange(1, main_conf_talks.index.size+1)
-main_conf_talks
+pylang = talks[talks['Group'].values == 'PyLang']
+pylang.index = np.arange(1, pylang.index.size+1)
+pylang
 ```
 
 
@@ -687,461 +2045,375 @@ main_conf_talks
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>type</th>
-      <th>track</th>
-      <th>lang</th>
-      <th>title</th>
-      <th>speaker</th>
+      <th>Type</th>
+      <th>Duration</th>
+      <th>Group</th>
+      <th>Lang</th>
+      <th>Title</th>
+      <th>Speakers</th>
+      <th>Gender</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>1</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Gestione di errori ed eccezioni in Python 2 e ...</td>
-      <td>Alex Martelli</td>
+      <td>45</td>
+      <td>PyLang</td>
+      <td>en</td>
+      <td>Performant Python</td>
+      <td>Burkhard Kloss</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Domotica a cinque euro con Raspberry Pi Zero e...</td>
-      <td>Anna Chiara Bellini</td>
+      <td>45</td>
+      <td>PyLang</td>
+      <td>en</td>
+      <td>Demystifying Decorators</td>
+      <td>Akul Mehra</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>3</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
+      <td>30</td>
+      <td>PyLang</td>
       <td>en</td>
-      <td>Exception and error handling in Python 2 and P...</td>
-      <td>Alex Martelli</td>
+      <td>Tales from the Crypt: A Cryptography Primer</td>
+      <td>Adam Englander</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
+      <td>45</td>
+      <td>PyLang</td>
       <td>it</td>
-      <td>Capire i Decoratori</td>
-      <td>Ezio Melotti</td>
+      <td>ByteCode al supporto dei test per protocolli ed enforcing di best practices</td>
+      <td>Alessandro Molina</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>5</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Ripensare la programmazione: un approccio funz...</td>
-      <td>Francesco Bruni</td>
+      <td>60</td>
+      <td>PyLang</td>
+      <td>en</td>
+      <td>Solving the web most popular code shortening competition with Python 3</td>
+      <td>Alessandro Amici</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>6</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
+      <td>45</td>
+      <td>PyLang</td>
       <td>it</td>
-      <td>Delivery isn't magic anymore: distribuisci le ...</td>
-      <td>Alan Franzoni</td>
+      <td>Unreal Engine 4 e Python: Ora si Puo'</td>
+      <td>Roberto De Ioris</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>7</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Mischiare threads e fork sotto unix: cose da f...</td>
-      <td>Enrico Franchi</td>
+      <td>45</td>
+      <td>PyLang</td>
+      <td>en</td>
+      <td>Python on $5 IoT Device</td>
+      <td>Ken Alger</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>8</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Big data con PostgreSQL</td>
-      <td>Giuseppe Broccolo</td>
+      <td>60</td>
+      <td>PyLang</td>
+      <td>en</td>
+      <td>PyPy Status Update</td>
+      <td>Antonio Cuni</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>9</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
+      <td>30</td>
+      <td>PyLang</td>
       <td>en</td>
-      <td>Continuous delivery of a Python web project wi...</td>
-      <td>Joost Cassee</td>
+      <td>Behavioral Driven Development: Tame the Beast</td>
+      <td>Adam Englander</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>10</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>en</td>
-      <td>$5 Home Automation with Raspberry Pi Zero and ...</td>
-      <td>Anna Chiara Bellini</td>
+      <td>45</td>
+      <td>PyLang</td>
+      <td>it</td>
+      <td>Python e swift: linguaggi a confronto</td>
+      <td>Lelio Campanile</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>11</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>EuroCotoletta 2017</td>
-      <td>Christian Barra</td>
+      <td>45</td>
+      <td>PyLang</td>
+      <td>en</td>
+      <td>Test Driven Deployment with Ansible 2.</td>
+      <td>Roberto Polli</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>12</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
+      <td>60</td>
+      <td>PyLang</td>
       <td>en</td>
-      <td>Mixing multiprocessing and threads in the UNIX...</td>
-      <td>Enrico Franchi</td>
+      <td>42 PyCharm Tips and Tricks</td>
+      <td>Dmitry Trofimov</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>13</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>en</td>
-      <td>Introduction of aiohttp</td>
-      <td>Andrew Svetlov</td>
+      <td>45</td>
+      <td>PyLang</td>
+      <td>it</td>
+      <td>Chat Bot in Telegram (e slack e altri)</td>
+      <td>Lorenzo Buonanno, Tommaso Sartor</td>
+      <td>👨‍💻+👨‍💻</td>
     </tr>
     <tr>
       <th>14</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>en</td>
-      <td>Understanding Decorators</td>
-      <td>Ezio Melotti</td>
+      <td>60</td>
+      <td>PyLang</td>
+      <td>it</td>
+      <td>Creare videogiochi per smartphone con Kivy</td>
+      <td>Rigel Di Scala</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>15</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>en</td>
-      <td>Building an asynchronous websocket server</td>
-      <td>Tatiana Al-Chueyr</td>
+      <td>60</td>
+      <td>PyLang</td>
+      <td>it</td>
+      <td>Rusty Python</td>
+      <td>Matteo Bertini</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>16</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
+      <td>45</td>
+      <td>PyLang</td>
       <td>it</td>
-      <td>La vita di uno sviluppatore di free software</td>
-      <td>Riccardo Magliocchetti</td>
+      <td>Svilluppare con python sull'iPad</td>
+      <td>Lelio Campanile</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>17</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Abstract Base Classes: un uso intelligente del...</td>
-      <td>Leonardo Giordani</td>
+      <td>45</td>
+      <td>PyLang</td>
+      <td>en</td>
+      <td>Just one Shade of OpenStack</td>
+      <td>Roberto Polli</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>18</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
+      <td>45</td>
+      <td>PyLang</td>
       <td>en</td>
-      <td>Strings don't exist</td>
-      <td>Martin Matusiak</td>
+      <td>Plugin Based Chat Bots in Telegram (and Slack and others)</td>
+      <td>Lorenzo Buonanno, Tommaso Sartor</td>
+      <td>👨‍💻+👨‍💻</td>
     </tr>
     <tr>
       <th>19</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
+      <td>45</td>
+      <td>PyLang</td>
       <td>en</td>
-      <td>Tox as project descriptor: not only Continuous...</td>
-      <td>Roberto Polli</td>
+      <td>Attack of Pythons : Gotchas and Landmines in Python</td>
+      <td>Manoj Pandey</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>20</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Ansible: automazione IT vocata al Cloud</td>
-      <td>Ivan Rossi</td>
+      <td>30</td>
+      <td>PyLang</td>
+      <td>en</td>
+      <td>Loop better: a deeper look at iteration in Python</td>
+      <td>Trey Hunner</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>21</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Comando di un robot con Python</td>
-      <td>Antonio Spadaro</td>
+      <td>45</td>
+      <td>PyLang</td>
+      <td>en</td>
+      <td>Ansible roles, private git repos and the Ansible Galaxy tool</td>
+      <td>Serena Lorenzini</td>
+      <td>👩‍💻</td>
     </tr>
     <tr>
       <th>22</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Pglogical: il futuro della replica con Postgres</td>
-      <td>Marco Nenciarini</td>
+      <td>30</td>
+      <td>PyLang</td>
+      <td>en</td>
+      <td>Comprehensible Comprehensions</td>
+      <td>Trey Hunner</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>23</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
+      <td>45</td>
+      <td>PyLang</td>
       <td>it</td>
-      <td>How to fight with yourself and win</td>
-      <td>Christian Barra</td>
+      <td>Rules of thumb to test the documentation</td>
+      <td>Marco Buttu</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>24</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>PyContinuous Integration: una esperienza di vita</td>
-      <td>Giulio Calacoci</td>
+      <td>45</td>
+      <td>PyLang</td>
+      <td>en</td>
+      <td>Continuous Delivery for Iot with Python and Iottly</td>
+      <td>Stefano Terna</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>25</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Introduzione a MicroPython e BBC Micro:Bit</td>
-      <td>Andrea Grandi</td>
+      <td>30</td>
+      <td>PyLang</td>
+      <td>en</td>
+      <td>Python, Locales and Writing Systems</td>
+      <td>Rae Knowler</td>
+      <td>👩‍💻</td>
     </tr>
     <tr>
       <th>26</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
+      <td>60</td>
+      <td>PyLang</td>
       <td>it</td>
-      <td>DukPy, liberarsi dalle catene di NodeJS</td>
-      <td>Alessandro Molina</td>
+      <td>Cross-platform game development with Kivy</td>
+      <td>Rigel Di Scala</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>27</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>en</td>
-      <td>CONNEXION: API FIRST REST FRAMEWORK FOR PYTHON</td>
-      <td>João Santos</td>
+      <td>45</td>
+      <td>PyLang</td>
+      <td>it</td>
+      <td>Ansible: sviluppo e utilizzo di roles seguendo il modello di Ansible Galaxy</td>
+      <td>Serena Lorenzini</td>
+      <td>👩‍💻</td>
     </tr>
     <tr>
       <th>28</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
+      <td>45</td>
+      <td>PyLang</td>
       <td>en</td>
-      <td>Abstract Base Classes: a smart use of metaclasses</td>
-      <td>Leonardo Giordani</td>
+      <td>Artistic Python: Mixing Python Programming with Fashion</td>
+      <td>Ria Baldevia</td>
+      <td>👩‍💻</td>
     </tr>
     <tr>
       <th>29</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
+      <td>45</td>
+      <td>PyLang</td>
       <td>en</td>
-      <td>Introduction to MicroPython and BBC micro:bit</td>
-      <td>Andrea Grandi</td>
+      <td>Python + Windows, like a boss</td>
+      <td>Nicola Iarocci</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>30</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>en</td>
-      <td>Introduction to JSON Schema</td>
-      <td>Julian Berman</td>
+      <td>45</td>
+      <td>PyLang</td>
+      <td>it</td>
+      <td>Pilotare un braccio robotico dal cloud con GenroPy e Raspberry</td>
+      <td>Michele Bertoldi</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>31</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
+      <td>45</td>
+      <td>PyLang</td>
       <td>en</td>
-      <td>Iottly, open source Internet of Things distrib...</td>
-      <td>Stefano Terna</td>
+      <td>Roboto Framework for Test Code Coverage for cloud services.</td>
+      <td>khushbu parakh</td>
+      <td>👩‍💻</td>
     </tr>
     <tr>
       <th>32</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
+      <td>45</td>
+      <td>PyLang</td>
       <td>en</td>
-      <td>Fixing memory leaks with tracemalloc and gc</td>
-      <td>Marco Paolini</td>
+      <td>Awesome CLI</td>
+      <td>Mark Fink</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>33</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
+      <td>60</td>
+      <td>PyLang</td>
       <td>it</td>
-      <td>Multicorn: unicorni e elefanti possono lavorar...</td>
-      <td>Giulio Calacoci</td>
+      <td>Creazione ed evoluzione di un framework per interfacce grafiche Multi-Touch con OpenGL</td>
+      <td>Tiziano Carotti</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>34</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
+      <td>30</td>
+      <td>PyLang</td>
       <td>en</td>
-      <td>A huge green snake bars the way!; Or, and Exer...</td>
-      <td>Katie Silverio</td>
+      <td>James and the Giant Forensics Toolkit</td>
+      <td>Tiberius Hefflin</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>35</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
+      <td>45</td>
+      <td>PyLang</td>
       <td>it</td>
-      <td>Sistemare i memory leaks con tracemalloc e gc</td>
-      <td>Marco Paolini</td>
+      <td>ENVIFATE: plugin per QGIS per la valutazione del rischio di inquinamento ambientale</td>
+      <td>Francesco Geri</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>36</th>
       <td>Talk</td>
-      <td>Python &amp; Friends</td>
+      <td>45</td>
+      <td>PyLang</td>
       <td>it</td>
-      <td>Docker e PostgreSQL: un matrimonio possibile?</td>
-      <td>Leonardo Cecchi</td>
-    </tr>
-    <tr>
-      <th>37</th>
-      <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Introduzione a "Modern OpenGL" con Python</td>
-      <td>Roberto De Ioris</td>
-    </tr>
-    <tr>
-      <th>38</th>
-      <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Java VS Python</td>
-      <td>Simone Federici</td>
-    </tr>
-    <tr>
-      <th>39</th>
-      <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Erpy: una solida base per scrivere gestionali ...</td>
-      <td>Giovanni Porcari</td>
-    </tr>
-    <tr>
-      <th>40</th>
-      <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Genropy: non solo gestionali</td>
-      <td>Francesco Porcari</td>
-    </tr>
-    <tr>
-      <th>41</th>
-      <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>en</td>
-      <td>Taking care of PostgreSQL with Ansible</td>
-      <td>Rubens Souza</td>
-    </tr>
-    <tr>
-      <th>42</th>
-      <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Un CRM con Genropy,e altro</td>
-      <td>Alessandro Tufi</td>
-    </tr>
-    <tr>
-      <th>43</th>
-      <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Iottly, distribuzione open source per Internet...</td>
-      <td>Stefano Terna</td>
-    </tr>
-    <tr>
-      <th>44</th>
-      <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Auditing di un database PostgreSQL con Psycopg...</td>
-      <td>Marco Nenciarini</td>
-    </tr>
-    <tr>
-      <th>45</th>
-      <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Convalida dei dati per esseri umani</td>
-      <td>Nicola Iarocci</td>
-    </tr>
-    <tr>
-      <th>46</th>
-      <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Una storia di mille storie, con due punti ferm...</td>
-      <td>carloratm carloratm</td>
-    </tr>
-    <tr>
-      <th>47</th>
-      <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Autocompletamento per Blender Game Engine logic</td>
-      <td>Anna Chiara Bellini</td>
-    </tr>
-    <tr>
-      <th>48</th>
-      <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Python come Hardware Description Language</td>
-      <td>Paolo Guadagnuolo</td>
-    </tr>
-    <tr>
-      <th>49</th>
-      <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Fate RPG: una web application per giocarlo onl...</td>
-      <td>Saverio Porcari</td>
-    </tr>
-    <tr>
-      <th>50</th>
-      <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>en</td>
-      <td>From Java to Python</td>
-      <td>OFFER SHARABI</td>
-    </tr>
-    <tr>
-      <th>51</th>
-      <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Monitoraggio delle Risorse con Zabbix e Python</td>
-      <td>Massimiliano Cuzzoli</td>
-    </tr>
-    <tr>
-      <th>52</th>
-      <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Come passare indenni (o quasi) la traversata d...</td>
-      <td>Ugo Scaiella</td>
-    </tr>
-    <tr>
-      <th>53</th>
-      <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>en</td>
-      <td>Blender Game Engine logic and autocompletion</td>
-      <td>Anna Chiara Bellini</td>
-    </tr>
-    <tr>
-      <th>54</th>
-      <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>en</td>
-      <td>Resource Monitoring with Zabbix and Python</td>
-      <td>Massimiliano Cuzzoli</td>
-    </tr>
-    <tr>
-      <th>55</th>
-      <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>jmb.mailup, uno strumento semplice per interfa...</td>
-      <td>Benedetto Campanale</td>
-    </tr>
-    <tr>
-      <th>56</th>
-      <td>Talk</td>
-      <td>Python &amp; Friends</td>
-      <td>it</td>
-      <td>Perl6 is here to rest!</td>
-      <td>David Mugnai</td>
+      <td>Terrain Generation in Python with Processing</td>
+      <td>Paolo Improta</td>
+      <td>👨‍💻</td>
     </tr>
   </tbody>
 </table>
@@ -1151,24 +2423,20 @@ main_conf_talks
 
 
 ```python
-print('Number of Talks Proposed: ', main_conf_talks.index.size)
+print('Number of Talks Proposed: ', pylang.index.size)
 ```
 
-    Number of Talks Proposed:  56
+    Number of Talks Proposed:  36
 
 
-# Sub Communities
-
-<div style="background-color: #FAFAFA">
-    <a name="djangovillage"></a>
-    <img src='logos/djangovillage.png' style="align: center;" />
-</div>
+<a name="pycomm"></a>
+## `PyCommunity` 
 
 
 ```python
-djangovillagers = talks[talks['track'].values == 'DjangoVillage']
-djangovillagers.index = np.arange(1, djangovillagers.index.size+1)
-djangovillagers
+pycommunity = talks[talks['Group'].values == 'PyCommunity']
+pycommunity.index = np.arange(1, pycommunity.index.size+1)
+pycommunity
 ```
 
 
@@ -1179,173 +2447,335 @@ djangovillagers
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>type</th>
-      <th>track</th>
-      <th>lang</th>
-      <th>title</th>
-      <th>speaker</th>
+      <th>Type</th>
+      <th>Duration</th>
+      <th>Group</th>
+      <th>Lang</th>
+      <th>Title</th>
+      <th>Speakers</th>
+      <th>Gender</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>1</th>
       <td>Talk</td>
-      <td>DjangoVillage</td>
-      <td>en</td>
-      <td>Dockerizing Django projects</td>
-      <td>Roberto Rosario</td>
+      <td>90</td>
+      <td>PyCommunity</td>
+      <td>it</td>
+      <td>L’Italia, python e la chimera dell’Agile</td>
+      <td>Gabriele Giaccari</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Talk</td>
-      <td>DjangoVillage</td>
+      <td>45</td>
+      <td>PyCommunity</td>
       <td>en</td>
-      <td>What we understood about Microservices</td>
-      <td>Saverio Mucci</td>
+      <td>Is it too late to learn how to program and how being a developer change my life</td>
+      <td>Alicia Carr</td>
+      <td>👩‍💻</td>
     </tr>
     <tr>
       <th>3</th>
       <td>Talk</td>
-      <td>DjangoVillage</td>
+      <td>45</td>
+      <td>PyCommunity</td>
       <td>it</td>
-      <td>Grafici interattivi con Django e Highcharts JS...</td>
-      <td>ERNESTO ARBITRIO</td>
+      <td>Perché Python fa schifo!</td>
+      <td>Antonio Spadaro</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Talk</td>
-      <td>DjangoVillage</td>
-      <td>it</td>
-      <td>Django e i test: alcuni supporti per vivere fe...</td>
-      <td>Iacopo Spalletti</td>
+      <td>60</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>Python in Africa</td>
+      <td>Anna Makarudze</td>
+      <td>👩‍💻</td>
     </tr>
     <tr>
       <th>5</th>
       <td>Talk</td>
-      <td>DjangoVillage</td>
+      <td>30</td>
+      <td>PyCommunity</td>
       <td>en</td>
-      <td>Django tasty salad: DOs and DON'Ts using Celery</td>
-      <td>Roberto Rosario</td>
+      <td>From Idea to Presentation: How to Prepare a Conference Talk</td>
+      <td>Anna Ossowski</td>
+      <td>👩‍💻</td>
     </tr>
     <tr>
       <th>6</th>
       <td>Talk</td>
-      <td>DjangoVillage</td>
+      <td>60</td>
+      <td>PyCommunity</td>
       <td>it</td>
-      <td>Debito tecnico: come non andare in rosso</td>
-      <td>Simone Basso</td>
+      <td>E.T. chiama Python</td>
+      <td>Davide Corio</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>7</th>
       <td>Talk</td>
-      <td>DjangoVillage</td>
-      <td>it</td>
-      <td>Elasticsearch Blueprint</td>
-      <td>Christian Strappazzon</td>
+      <td>30</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>Be(come) a Mentor! Help Others Succeed!</td>
+      <td>Anna Ossowski</td>
+      <td>👩‍💻</td>
     </tr>
     <tr>
       <th>8</th>
       <td>Talk</td>
-      <td>DjangoVillage</td>
-      <td>it</td>
-      <td>Django e i metadati</td>
-      <td>Iacopo Spalletti</td>
+      <td>30</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>No Coding Skills Required: How to Contribute to Open Source in Other Ways</td>
+      <td>Anna Ossowski</td>
+      <td>👩‍💻</td>
     </tr>
     <tr>
       <th>9</th>
       <td>Talk</td>
-      <td>DjangoVillage</td>
-      <td>it</td>
-      <td>Come integrare elasticsearch e dormire sonni t...</td>
-      <td>Martino Pizzol</td>
+      <td>45</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>Growing a Python community</td>
+      <td>Anton Caceres</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>10</th>
       <td>Talk</td>
-      <td>DjangoVillage</td>
-      <td>it</td>
-      <td>Progetti a prezzo fisso e l'Agile</td>
-      <td>Peter Bittner</td>
+      <td>60</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>Don't try to look smart. Be smart</td>
+      <td>Flavio Percoco</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>11</th>
       <td>Talk</td>
-      <td>DjangoVillage</td>
+      <td>30</td>
+      <td>PyCommunity</td>
       <td>en</td>
-      <td>Developing a developer-friendly hypermedia API...</td>
-      <td>Joost Cassee</td>
+      <td>Compassionate Code Reviews</td>
+      <td>April Wensel</td>
+      <td>👩‍💻</td>
     </tr>
     <tr>
       <th>12</th>
       <td>Talk</td>
-      <td>DjangoVillage</td>
+      <td>30</td>
+      <td>PyCommunity</td>
       <td>en</td>
-      <td>Fix-Price Projects And Agile</td>
-      <td>Peter Bittner</td>
+      <td>Rants and Ruminations From A Job Applicant After 💯 CS Job Interviews in Silicon Valley</td>
+      <td>Susan Tan</td>
+      <td>👩‍💻</td>
     </tr>
     <tr>
       <th>13</th>
       <td>Talk</td>
-      <td>DjangoVillage</td>
-      <td>it</td>
-      <td>Progetti acceptance test-driven con Django</td>
-      <td>Peter Bittner</td>
+      <td>30</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>The Hidden Power Dynamics of Open Source</td>
+      <td>Anna Ossowski</td>
+      <td>👩‍💻</td>
     </tr>
     <tr>
       <th>14</th>
       <td>Talk</td>
-      <td>DjangoVillage</td>
-      <td>it</td>
-      <td>Django e frontend? Gulp! Razionalizzare la ges...</td>
-      <td>Alberto Motta</td>
+      <td>30</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>Applying the unix philosophy to django projects: a report from the real world</td>
+      <td>Federico Capoano</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>15</th>
       <td>Talk</td>
-      <td>DjangoVillage</td>
-      <td>en</td>
-      <td>Acceptance Test-driven Projects With Django</td>
-      <td>Peter Bittner</td>
+      <td>45</td>
+      <td>PyCommunity</td>
+      <td>it</td>
+      <td>Taiga e l’agile project management: join the Oompa Loompas’ Army!</td>
+      <td>Gabriele Giaccari</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>16</th>
       <td>Talk</td>
-      <td>DjangoVillage</td>
-      <td>it</td>
-      <td>Viaggiare leggeri col proprio progetto Django</td>
-      <td>Riccardo Magliocchetti</td>
+      <td>45</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>Scientific Hooliganism: lessons from the first hack in history</td>
+      <td>Lilly Ryan</td>
+      <td>👩‍💻</td>
     </tr>
     <tr>
       <th>17</th>
       <td>Talk</td>
-      <td>DjangoVillage</td>
-      <td>it</td>
-      <td>Pytest &amp; Django are really good friends!!</td>
-      <td>Simone Dalla</td>
+      <td>30</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>Threading Yarn, Writing Code: What Traditional Arts and Crafts Can Teach Us About Programming</td>
+      <td>Anna Ossowski</td>
+      <td>👩‍💻</td>
     </tr>
     <tr>
       <th>18</th>
       <td>Talk</td>
-      <td>DjangoVillage</td>
-      <td>it</td>
-      <td>django SHOP è ritornato</td>
-      <td>Jacob Rief</td>
+      <td>30</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>Navigating unconscious bias</td>
+      <td>Anna Schneider</td>
+      <td>👩‍💻</td>
     </tr>
     <tr>
       <th>19</th>
       <td>Talk</td>
-      <td>DjangoVillage</td>
+      <td>60</td>
+      <td>PyCommunity</td>
       <td>en</td>
-      <td>djangoSHOP is back</td>
-      <td>Jacob Rief</td>
+      <td>E.T. phone Python</td>
+      <td>Davide Corio</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>20</th>
       <td>Talk</td>
-      <td>DjangoVillage</td>
-      <td>it</td>
-      <td>Django 💖Gulp</td>
-      <td>Mattia Larentis</td>
+      <td>30</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>Leading an open source project as a startup.</td>
+      <td>Nicolas Garnier</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>Security Starts With You: Social Engineering</td>
+      <td>Tiberius Hefflin</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>How Not To Password</td>
+      <td>Tiberius Hefflin</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>ZimboPy: Empowering Zimbabwean Girls As Change Makers</td>
+      <td>Marlene Mhangami</td>
+      <td>👩‍💻</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>Keeping up with the pace of a fast growing community without dying</td>
+      <td>Flavio Percoco</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>Combating Impostor Syndrome</td>
+      <td>Ken Alger</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>Never Accept the First Offer</td>
+      <td>Tiberius Hefflin</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>Mastering Your Tools</td>
+      <td>Miguel Branco Palhas</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>Why the Internet Loves Cats</td>
+      <td>Tiberius Hefflin</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>Time Tracking is Hard</td>
+      <td>Sam Deng</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>The Monster on the Project</td>
+      <td>Tiberius Hefflin</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>Dial M For Mentor</td>
+      <td>Mariatta Wijaya</td>
+      <td>👩‍💻</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyCommunity</td>
+      <td>en</td>
+      <td>People Are Coming To My Beginning Workshop, What Now?</td>
+      <td>Nicholle James</td>
+      <td>👩‍💻</td>
     </tr>
   </tbody>
 </table>
@@ -1355,20 +2785,20 @@ djangovillagers
 
 
 ```python
-print('Number of Talks Proposed: ', djangovillagers.index.size)
+print('Number of Talks Proposed: ', pycommunity.index.size)
 ```
 
-    Number of Talks Proposed:  20
+    Number of Talks Proposed:  32
 
 
 <div style="background-color: #FAFAFA">
     <a name="pydata"></a>
-    <img src='logos/pydata.png' style="align: center;" />
+    <img src='logos/pydata.png' style="align: center;" width="50%" />
 </div>
 
 
 ```python
-pydataers = talks[talks['track'].values == 'PyData']
+pydataers = talks[talks['Group'].values == 'PyData']
 pydataers.index = np.arange(1, pydataers.index.size+1)
 pydataers
 ```
@@ -1381,181 +2811,415 @@ pydataers
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>type</th>
-      <th>track</th>
-      <th>lang</th>
-      <th>title</th>
-      <th>speaker</th>
+      <th>Type</th>
+      <th>Duration</th>
+      <th>Group</th>
+      <th>Lang</th>
+      <th>Title</th>
+      <th>Speakers</th>
+      <th>Gender</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>1</th>
       <td>Talk</td>
+      <td>45</td>
       <td>PyData</td>
       <td>it</td>
-      <td>Reti Neurali in Python</td>
-      <td>Simone Piunno</td>
+      <td>AI, Machine Learning e Deep Learning: cosa cambia?</td>
+      <td>Antonio Spadaro</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Talk</td>
+      <td>45</td>
       <td>PyData</td>
       <td>en</td>
-      <td>Time Travel and Time Series Analysis with pand...</td>
-      <td>Alexander Hendorf</td>
+      <td>Facial Analysis Techniques for Pythonista (and beyond!)</td>
+      <td>Alex Casalboni</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>3</th>
       <td>Talk</td>
+      <td>45</td>
       <td>PyData</td>
       <td>en</td>
-      <td>Building Data Pipelines in Python</td>
-      <td>Marco Bonzanini</td>
+      <td>Solving the Rubiks Cube with Python</td>
+      <td>Daan van Berkel</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Talk</td>
+      <td>60</td>
       <td>PyData</td>
       <td>en</td>
-      <td>%%async_run: an IPython notebook magic for asy...</td>
-      <td>Valerio Maggio</td>
+      <td>Deep Learning made easy</td>
+      <td>Jalem Raj Rohit</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>5</th>
       <td>Talk</td>
+      <td>60</td>
       <td>PyData</td>
       <td>en</td>
-      <td>Pythonic Particles</td>
+      <td>The unconventional Introduction to Deep Learning</td>
       <td>Valerio Maggio</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>6</th>
       <td>Talk</td>
+      <td>60</td>
       <td>PyData</td>
       <td>en</td>
-      <td>Machine learning and IoT for automatic presenc...</td>
-      <td>Stefano Terna</td>
+      <td>A Gentle Introduction to Neural Networks (with Python)</td>
+      <td>Tariq Rashid</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>7</th>
       <td>Talk</td>
+      <td>45</td>
       <td>PyData</td>
       <td>en</td>
-      <td>How to deploy scikit-learn machine learning mo...</td>
-      <td>Alex Casalboni</td>
+      <td>Introduction to Data-Analysis with Pandas</td>
+      <td>Alexander Hendorf</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>8</th>
       <td>Talk</td>
+      <td>60</td>
       <td>PyData</td>
-      <td>en</td>
-      <td>Contagious Functional Concepts in Python and t...</td>
-      <td>Holger Peters</td>
+      <td>it</td>
+      <td>Machine Learning con Python: previsione in real-time della richiesta di energia elettrica</td>
+      <td>Felice Tuosto</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>9</th>
       <td>Talk</td>
+      <td>45</td>
       <td>PyData</td>
-      <td>en</td>
-      <td>Cython extends Python</td>
-      <td>Stefan Behnel</td>
+      <td>it</td>
+      <td>Affrontare le sfide del cambiamento climatico con Python</td>
+      <td>Alessandro Amici</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>10</th>
       <td>Talk</td>
+      <td>45</td>
       <td>PyData</td>
-      <td>it</td>
-      <td>Metodi e  Strumenti per il Model Based Testing</td>
-      <td>Aniello Barletta</td>
+      <td>en</td>
+      <td>Time Series Analysis with Pandas</td>
+      <td>Alexander Hendorf</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>11</th>
       <td>Talk</td>
+      <td>60</td>
       <td>PyData</td>
-      <td>en</td>
-      <td>Data Mangling with mongoDB the Right Way</td>
-      <td>Alexander Hendorf</td>
+      <td>it</td>
+      <td>Machine Learning con Python: algoritmi NILM e real-time processing</td>
+      <td>Felice Tuosto</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>12</th>
       <td>Talk</td>
+      <td>45</td>
       <td>PyData</td>
-      <td>it</td>
-      <td>Machine learning e IoT per la rilevazione auto...</td>
-      <td>Stefano Terna</td>
+      <td>en</td>
+      <td>OpenCV for face detection</td>
+      <td>Ken Alger</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>13</th>
       <td>Talk</td>
+      <td>45</td>
       <td>PyData</td>
       <td>en</td>
-      <td>Automatic English text correction</td>
-      <td>Tatiana Al-Chueyr</td>
+      <td>How to turn Wikipedia into a Quiz Game</td>
+      <td>Andrea Cappelli, Roberto Turrin</td>
+      <td>👨‍💻+👨‍💻</td>
     </tr>
     <tr>
       <th>14</th>
       <td>Talk</td>
+      <td>60</td>
       <td>PyData</td>
       <td>it</td>
-      <td>Applied Bayesian Inference with PyMC</td>
-      <td>Marco Santoni</td>
+      <td>Where are you going? An overview on machine learning models for human mobility</td>
+      <td>Gianni Barlacchi</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>15</th>
       <td>Talk</td>
+      <td>60</td>
       <td>PyData</td>
-      <td>en</td>
-      <td>Devops lessons for the data scientist</td>
-      <td>Luca Mearelli</td>
+      <td>it</td>
+      <td>Tensor decomposition with Python: Learning structures from multidimensional data</td>
+      <td>André Panisson</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>16</th>
       <td>Talk</td>
+      <td>45</td>
       <td>PyData</td>
-      <td>it</td>
-      <td>Automatizzare la creazione e gestione di un cl...</td>
-      <td>Paolo D'Onorio De Meo</td>
+      <td>en</td>
+      <td>An Introduction to Pandas for Data Analysis in Python</td>
+      <td>Ayush Kumar Singh</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>17</th>
       <td>Talk</td>
+      <td>45</td>
       <td>PyData</td>
-      <td>it</td>
-      <td>Aiuto !!! Ho un dataset "squilibrato" !</td>
-      <td>Christian Barra</td>
+      <td>en</td>
+      <td>Basic principles of scientific data visualization</td>
+      <td>Giuseppe Jurman</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>18</th>
       <td>Talk</td>
+      <td>45</td>
       <td>PyData</td>
-      <td>it</td>
-      <td>Introduzione a Orange Data Mining</td>
-      <td>Eric Bonfadini</td>
+      <td>en</td>
+      <td>Explore the brain with Nilearn</td>
+      <td>Darya Chyzhyk</td>
+      <td>👩‍💻</td>
     </tr>
     <tr>
       <th>19</th>
       <td>Talk</td>
+      <td>45</td>
       <td>PyData</td>
-      <td>it</td>
-      <td>In-Database analytics with python and monetdb</td>
-      <td>Danilo Maurizio</td>
+      <td>en</td>
+      <td>An Introduction to Feature Selection in Machine Learning using Python</td>
+      <td>Rahul Baboota</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>20</th>
       <td>Talk</td>
+      <td>45</td>
       <td>PyData</td>
       <td>it</td>
-      <td>Lezioni devops per data scientist</td>
-      <td>Luca Mearelli</td>
+      <td>Word Embedding: come codificare il linguaggio naturale per algoritmi di previsione e classificazione</td>
+      <td>Felice Tuosto, Andrea Ianni</td>
+      <td>👨‍💻+👨‍💻</td>
     </tr>
     <tr>
       <th>21</th>
       <td>Talk</td>
+      <td>60</td>
+      <td>PyData</td>
+      <td>en</td>
+      <td>The Journey Of aeneas: A Python Adventure In Text and Speech</td>
+      <td>Alberto Pettarin</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>en</td>
+      <td>Jupyter: if you don't use it yet you're doing wrong</td>
+      <td>Christian Barra</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>en</td>
+      <td>Sparking Pandas: an experiment</td>
+      <td>Francesco Bruni</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>en</td>
+      <td>Space weather monitoring for a simulation of a Martian settlement based on Virtual Reality</td>
+      <td>Giovanni Bruno</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>en</td>
+      <td>Catching Neutrinos with Python and KM3NeT</td>
+      <td>Tamás Gál</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Talk</td>
+      <td>45</td>
       <td>PyData</td>
       <td>it</td>
-      <td>HPC con Python: istruzioni per l'uso</td>
-      <td>Nicola Creati</td>
+      <td>Il Viaggio di aeneas: Un'Avventura Con Python Tra Testo e Parlato</td>
+      <td>Alberto Pettarin</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>en</td>
+      <td>Word Embeddings for Natural Language Processing in Python</td>
+      <td>Marco Bonzanini</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyData</td>
+      <td>it</td>
+      <td>Validazione e decodifica di file XML con Python</td>
+      <td>Davide Brunato</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyData</td>
+      <td>it</td>
+      <td>Dai dati alla visualizzazione: la mia prima data pipeline</td>
+      <td>Riccardo Magliocchetti</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>en</td>
+      <td>How to use pandas the wrong way</td>
+      <td>Pietro Battiston</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>it</td>
+      <td>Misura: Un sistema per il controllo strumentale, l'acquisizione dati ed il calcolo scientifico</td>
+      <td>Daniele Paganelli</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>en</td>
+      <td>The Wild West of Data Wrangling</td>
+      <td>Sarah Guido</td>
+      <td>👩‍💻</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>it</td>
+      <td>Come usare male pandas</td>
+      <td>Pietro Battiston</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>it</td>
+      <td>Monitoring Beach Morphology with Python</td>
+      <td>Luca Liberti</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>en</td>
+      <td>Differential network analysis and graph classification: a glocal approach</td>
+      <td>Giuseppe Jurman</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>it</td>
+      <td>RFLab - Controllo remoto strumentazione di un laboratorio nel settore delle microonde</td>
+      <td>Andrea Saba</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>it</td>
+      <td>Fuzzy is the new sexy: a tour of scikit-fuzzy</td>
+      <td>Niccolo Raspa</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>it</td>
+      <td>Real-time Trajectory Optimization through contacts, a simple test case.</td>
+      <td>Tommaso Sartor</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>it</td>
+      <td>LiFT - Un tagger di features per l’analisi multidimensionale di testi ottimizzato per PySpark</td>
+      <td>Michele Gabusi</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyData</td>
+      <td>en</td>
+      <td>ADENINE: A Data ExploratioN pIpeliNE</td>
+      <td>Samuele Fiorini</td>
+      <td>👨‍💻</td>
     </tr>
   </tbody>
 </table>
@@ -1568,19 +3232,17 @@ pydataers
 print('Number of Talks Proposed: ', pydataers.index.size)
 ```
 
-    Number of Talks Proposed:  21
+    Number of Talks Proposed:  40
 
 
-<div style="background-color: #FAFAFA">
-    <a name="odoo"></a>
-    <img src='logos/odoo.png' style="align: center;" />
-</div>
+<a name="pyweb"></a>
+## `PyWeb` 
 
 
 ```python
-odooers = talks[talks['track'].values == 'Odoo']
-odooers.index = np.arange(1, odooers.index.size+1)
-odooers
+pyweb = talks[talks['Group'].values == 'PyWeb']
+pyweb.index = np.arange(1, pyweb.index.size+1)
+pyweb
 ```
 
 
@@ -1591,53 +3253,485 @@ odooers
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>type</th>
-      <th>track</th>
-      <th>lang</th>
-      <th>title</th>
-      <th>speaker</th>
+      <th>Type</th>
+      <th>Duration</th>
+      <th>Group</th>
+      <th>Lang</th>
+      <th>Title</th>
+      <th>Speakers</th>
+      <th>Gender</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>1</th>
       <td>Talk</td>
-      <td>Odoo</td>
-      <td>it</td>
-      <td>Odoo in Italia: La suite di applicazioni busin...</td>
-      <td>Mario Riva</td>
+      <td>45</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Building Serverless applications with Python</td>
+      <td>Andrii Soldatenko</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Talk</td>
-      <td>Odoo</td>
+      <td>45</td>
+      <td>PyWeb</td>
       <td>it</td>
-      <td>Primi passi in Odoo dev</td>
-      <td>Eliumara Lopez</td>
+      <td>Create a serverless infrastructure for data collection with Python and AWS</td>
+      <td>David Santucci</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>3</th>
       <td>Talk</td>
-      <td>Odoo</td>
+      <td>45</td>
+      <td>PyWeb</td>
       <td>it</td>
-      <td>Sviluppare su Odoo</td>
-      <td>Nicola Malcontenti</td>
+      <td>Indicizzare e ricercare tonnellate di dati con ElasticSearch e Django</td>
+      <td>Ernesto Arbitrio</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Talk</td>
-      <td>Odoo</td>
+      <td>45</td>
+      <td>PyWeb</td>
       <td>it</td>
-      <td>OCA, la community internazionale di Odoo: Come...</td>
-      <td>Alex Comba</td>
+      <td>Django Rest Framework - Tips&amp;Tricks</td>
+      <td>Luca Zacchetti</td>
+      <td>👨‍💻</td>
     </tr>
     <tr>
       <th>5</th>
       <td>Talk</td>
-      <td>Odoo</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Out of Sight, Out of Mind: Survival tricks and tools for remote developers</td>
+      <td>Alessio Bragadini</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Crash test of Django ORM</td>
+      <td>Andrii Soldatenko</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Understanding Serverless Architecture</td>
+      <td>Jalem Raj Rohit</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyWeb</td>
       <td>it</td>
-      <td>Gestione di un Consorzio con Odoo</td>
-      <td>Piero Cecchi</td>
+      <td>Getting started with requests HTTP library</td>
+      <td>Andrea Grandi</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyWeb</td>
+      <td>it</td>
+      <td>Serverless computing con Python e AWS</td>
+      <td>Federico Caboni</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyWeb</td>
+      <td>it</td>
+      <td>Deploy automatizzato di un progetto Python 3/Django con Ansible</td>
+      <td>Marco Santamaria</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Serverless computing with Python and AWS</td>
+      <td>Federico Caboni</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Why I still develop synchronous web in the asyncIO era</td>
+      <td>Giovanni Barillari</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Django among modern web frameworks – was Angular2 a good choice?</td>
+      <td>Andrzej Krawczyk</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>An Introduction to web scraping using Python</td>
+      <td>Manoj Pandey</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyWeb</td>
+      <td>it</td>
+      <td>Perché sviluppo ancora web sincrono nell'era dell'asyncIO</td>
+      <td>Giovanni Barillari</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Django and the testing pyramid</td>
+      <td>Aaron Bassett</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Data loss prevention in modern web applications</td>
+      <td>Xavier Dutreilh</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Amazon Web Services for dummies - tips and tricks</td>
+      <td>Justyna Janczyszyn</td>
+      <td>👩‍💻</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyWeb</td>
+      <td>it</td>
+      <td>OpneSSH SFTP service con Python: pysftpserver.</td>
+      <td>Filippo Morelli</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyWeb</td>
+      <td>it</td>
+      <td>Amazon Web Services per i principianti - consigli e trucchi</td>
+      <td>Justyna Janczyszyn</td>
+      <td>👩‍💻</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyWeb</td>
+      <td>it</td>
+      <td>Open edX, soluzione per l'e-learning basata su Django</td>
+      <td>Davide Corio</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Automated deploy of a Python 3/Django project with Ansible</td>
+      <td>Marco Santamaria</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Type uWSGI; press enter; what happens?</td>
+      <td>Philip James</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Planet friendly web development with Django</td>
+      <td>Chris Adams</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyWeb</td>
+      <td>it</td>
+      <td>weppy: il framework web per umani</td>
+      <td>Giovanni Barillari</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Presenting pysftpserver: OpenSSH SFTP service with Python.</td>
+      <td>Filippo Morelli</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyWeb</td>
+      <td>it</td>
+      <td>Django nella giungla Javascript</td>
+      <td>Patrick Guido Arminio</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>The hard long journey of submitting a form</td>
+      <td>Filipe de Alencar Ximenes</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Infrastructure as Code with Terraform</td>
+      <td>Justyna Janczyszyn</td>
+      <td>👩‍💻</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>The mullet architecture - Elasticsearch in the front, Postgres in the back</td>
+      <td>Honza Král</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyWeb</td>
+      <td>it</td>
+      <td>Infrastruttura come codice con Terraform</td>
+      <td>Justyna Janczyszyn</td>
+      <td>👩‍💻</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Geospatial three amigos: Python, Leaflet, and ElasticSearch</td>
+      <td>Roberto Rosario</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Django Admin - The Swiss Army Knife</td>
+      <td>Prakash Kumar</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>34</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyWeb</td>
+      <td>it</td>
+      <td>MIT MicroMasters: come sviluppare una web application basata su servizi esterni.</td>
+      <td>Giovanni Di Milia</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>35</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Serverlessness - augmenting your Django apps with Functions-as-a-Service</td>
+      <td>Tom Dyson</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Qualities of great reusable Django apps</td>
+      <td>Flávio Juvenal da Silva Junior</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>weppy: the web framework for humans</td>
+      <td>Giovanni Barillari</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Scaling Django with Kubernetes</td>
+      <td>Saket Bhushan</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Beginning with django? Why you need to continue with django</td>
+      <td>Opetunde Adepoju</td>
+      <td>👩‍💻</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Migrating from JavaEE to Django: the OSIS case of embracing cultural and technical changes</td>
+      <td>Hildeberto Mendonca</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Integrating the Bokeh library with Django</td>
+      <td>Ken Alger</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Preventing issues on Django with linters and tools</td>
+      <td>Flávio Juvenal da Silva Junior</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyWeb</td>
+      <td>it</td>
+      <td>Django ORM in server TCP con backend multischema PostgreSQL</td>
+      <td>Luca Ferroni</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Deploying your django application using puppet</td>
+      <td>Krzysztof Żuraw</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Addons: I can solve 90% of your problems. The other 90% are up to you.</td>
+      <td>Stefan Foulis</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyWeb</td>
+      <td>it</td>
+      <td>Wargame web app - Odoo come framework di sviluppo</td>
+      <td>Nicola Malcontenti</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>Talk</td>
+      <td>30</td>
+      <td>PyWeb</td>
+      <td>en</td>
+      <td>Using SASS in Django</td>
+      <td>Jacob Rief</td>
+      <td>👨‍💻</td>
     </tr>
   </tbody>
 </table>
@@ -1647,8 +3741,262 @@ odooers
 
 
 ```python
-print('Number of Talks Proposed: ', odooers.index.size)
+print('Number of Talks Proposed: ', pyweb.index.size)
 ```
 
-    Number of Talks Proposed:  5
+    Number of Talks Proposed:  47
+
+
+<a name="pybusiness"></a>
+##  `PyBusiness` 
+
+
+```python
+pybusiness = talks[talks['Group'].values == 'PyBusiness']
+pybusiness.index = np.arange(1, pybusiness.index.size+1)
+pybusiness
+```
+
+
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Type</th>
+      <th>Duration</th>
+      <th>Group</th>
+      <th>Lang</th>
+      <th>Title</th>
+      <th>Speakers</th>
+      <th>Gender</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyBusiness</td>
+      <td>it</td>
+      <td>Realizzare stampe HTML e PDF usando solo Python</td>
+      <td>Saverio Porcari</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyBusiness</td>
+      <td>it</td>
+      <td>Da applicativi Desktop a Web</td>
+      <td>Luigi Renna</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyBusiness</td>
+      <td>it</td>
+      <td>Analisi dati e grafici in Genropy</td>
+      <td>Francesco Porcari</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyBusiness</td>
+      <td>it</td>
+      <td>iCond: GenroPy per amministratori di condomini</td>
+      <td>Andrea Busanelli</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyBusiness</td>
+      <td>it</td>
+      <td>Sviluppo lato client con Odoo</td>
+      <td>Davide Corio</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyBusiness</td>
+      <td>it</td>
+      <td>Form e Campi dinamici in Genropy</td>
+      <td>Francesco Porcari</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyBusiness</td>
+      <td>it</td>
+      <td>Genropy: 10 anni di sviluppo di un framework italiano</td>
+      <td>Giovanni Porcari</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyBusiness</td>
+      <td>it</td>
+      <td>Genropy - Caso d'uso: gestione di una infrastruttura telefonica VoIP di medie/grandi dimensioni</td>
+      <td>Mauro Zanardi</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyBusiness</td>
+      <td>it</td>
+      <td>Un anno di Genropy</td>
+      <td>Muhammad Hassan Khurshid</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyBusiness</td>
+      <td>it</td>
+      <td>Usare Erpy da applicazioni esterne</td>
+      <td>Giovanni Porcari</td>
+      <td>👨‍💻</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+print('Number of Talks Proposed: ', pybusiness.index.size)
+```
+
+    Number of Talks Proposed:  10
+
+
+<a name="pydb"></a>
+## `PyDatabase` 
+
+
+```python
+pydb = talks[talks['Group'].values == 'PyDatabase']
+pydb.index = np.arange(1, pydb.index.size+1)
+pydb
+```
+
+
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Type</th>
+      <th>Duration</th>
+      <th>Group</th>
+      <th>Lang</th>
+      <th>Title</th>
+      <th>Speakers</th>
+      <th>Gender</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyDatabase</td>
+      <td>it</td>
+      <td>Digital Analytics Data Aggregation: un case study dal mondo reale utilizzando SQL, NoSQL e Pandas</td>
+      <td>Alessandro Pelliciari</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyDatabase</td>
+      <td>it</td>
+      <td>Full Text Search con PostgreSQL</td>
+      <td>Giuseppe Broccolo</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyDatabase</td>
+      <td>it</td>
+      <td>Disaster recovery: una serie di sfortunati eventi</td>
+      <td>Giulio Calacoci</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Talk</td>
+      <td>60</td>
+      <td>PyDatabase</td>
+      <td>it</td>
+      <td>Python e PostgreSQL, un connubio perfetto</td>
+      <td>Marco Nenciarini</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyDatabase</td>
+      <td>it</td>
+      <td>Ricerca full text in Django con PostgreSQL</td>
+      <td>Paolo Melchiorre</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyDatabase</td>
+      <td>it</td>
+      <td>PostgreSQL su NFS: miti e verità</td>
+      <td>Jonathan Battiato</td>
+      <td>👨‍💻</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Talk</td>
+      <td>45</td>
+      <td>PyDatabase</td>
+      <td>en</td>
+      <td>Taking care of PostgreSQL with Ansible</td>
+      <td>Rubens Souza</td>
+      <td>👨‍💻</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+print('Number of Talks Proposed: ', pydb.index.size)
+```
+
+    Number of Talks Proposed:  7
 

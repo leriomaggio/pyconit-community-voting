@@ -1,5 +1,5 @@
 181 talks / 109 users / 5366 votes 👨‍💻
-Idx~TID~Type~Duration~Track~Lang~Title~Speakers~Gender
+Idx~TID~Type~Duration~Group~Lang~Title~Speakers~Gender
 1~1257~Talk~45~PyData~it~AI, Machine Learning e Deep Learning: cosa cambia?~Antonio Spadaro~male
 2~1099~Talk~90~PyCommunity~it~L’Italia, python e la chimera dell’Agile~Gabriele Giaccari~male
 3~1174~Talk~45~PyData~en~Facial Analysis Techniques for Pythonista (and beyond!)~Alex Casalboni~male
