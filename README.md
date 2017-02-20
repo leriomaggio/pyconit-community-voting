@@ -8,11 +8,12 @@ Community Voting Results and Rankings of Talks proposed at PyCon Otto: [http://p
 
 * **Notebook**: [Conference Talks Rankings](Conference Talks Rankings.ipynb)
 
-## All the Rankings: ##
+## All the Rankings & Stats: ##
 * [**Absolute Ranking**](https://gist.github.com/leriomaggio/3762d7e50d208d26c192fff5c6faa813#community-voting-results)
 
 * [**Talks**](https://gist.github.com/leriomaggio/3762d7e50d208d26c192fff5c6faa813#talks)
 * [**Traninngs**](https://gist.github.com/leriomaggio/3762d7e50d208d26c192fff5c6faa813#trainings)
+* [**Stats**]((https://gist.github.com/leriomaggio/3762d7e50d208d26c192fff5c6faa813#stats))
 
 ### Tracks
 
