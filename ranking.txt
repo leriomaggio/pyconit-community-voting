@@ -1,113 +1,183 @@
-112 talks / 82 users / 3647 votes
-1 - 960 - Talk - Python & Friends - it - Gestione di errori ed eccezioni in Python 2 e Python 3 - Alex Martelli
-2 - 1027 - Training - Python & Friends - en - Beautiful async code in Python 3 - Anton Caceres
-3 - 1038 - Training - Python & Friends - it - Docker: dalla build a production - Davide Setti
-4 - 1061 - Talk - Python & Friends - it - Domotica a cinque euro con Raspberry Pi Zero e Open Web Net - Anna Chiara Bellini
-5 - 961 - Talk - Python & Friends - en - Exception and error handling in Python 2 and Python 3 - Alex Martelli
-6 - 1015 - Talk - Python & Friends - it - Capire i Decoratori - Ezio Melotti
-7 - 956 - Talk - Python & Friends - it - Ripensare la programmazione: un approccio funzionale - Francesco Bruni
-8 - 964 - Talk - Python & Friends - it - Delivery isn't magic anymore: distribuisci le tue applicazioni! - Alan Franzoni
-9 - 969 - Talk - PyData - it - Reti Neurali in Python - Simone Piunno
-10 - 999 - Talk - Python & Friends - it - Mischiare threads e fork sotto unix: cose da fare e cose da non fare (principalmente non fare) - Enrico Franchi
-11 - 1031 - Talk - Python & Friends - it - Big data con PostgreSQL - Giuseppe Broccolo
-12 - 1047 - Talk - DjangoVillage - en - Dockerizing Django projects - Roberto Rosario
-13 - 1021 - Talk - Python & Friends - en - Continuous delivery of a Python web project with Docker and Ansible - Joost Cassee
-14 - 1058 - Talk - Python & Friends - en - $5 Home Automation with Raspberry Pi Zero and Open Web Net - Anna Chiara Bellini
-15 - 1046 - Talk - PyData - en - Time Travel and Time Series Analysis with pandas & statsmodels  - Alexander Hendorf
-16 - 952 - Training - Python & Friends - en - Computer Graphics per aspiranti game-developers con Python - Roberto De Ioris
-17 - 978 - Talk - Python & Friends - it - EuroCotoletta 2017 - Christian Barra
-18 - 998 - Talk - Python & Friends - en - Mixing multiprocessing and threads in the UNIX environment: DOs and DONTs (mostly DONTs) - Enrico Franchi
-19 - 1007 - Talk - Python & Friends - en - Introduction of aiohttp - Andrew Svetlov
-20 - 1014 - Talk - Python & Friends - en - Understanding Decorators - Ezio Melotti
-21 - 1039 - Talk - Python & Friends - en - Building an asynchronous websocket server - Tatiana Al-Chueyr
-22 - 962 - Talk - Python & Friends - it - La vita di uno sviluppatore di free software - Riccardo Magliocchetti
-23 - 990 - Talk - Python & Friends - it - Abstract Base Classes: un uso intelligente delle metaclassi - Leonardo Giordani
-24 - 970 - Talk - Python & Friends - en - Strings don't exist - Martin Matusiak
-25 - 1006 - Talk - Python & Friends - en - Tox as project descriptor: not only Continuous Integration - Roberto Polli
-26 - 973 - Talk - Python & Friends - it - Ansible: automazione IT vocata al Cloud - Ivan Rossi
-27 - 1000 - Talk - Python & Friends - it - Comando di un robot con Python - Antonio Spadaro
-28 - 1011 - Talk - PyData - en - Building Data Pipelines in Python - Marco Bonzanini
-29 - 1040 - Talk - PyData - en - %%async_run: an IPython notebook magic for asynchronous cell execution - Valerio Maggio
-30 - 1044 - Talk - Python & Friends - it - Pglogical: il futuro della replica con Postgres - Marco Nenciarini
-31 - 1045 - Talk - PyData - en - Pythonic Particles - Valerio Maggio
-32 - 1002 - Talk - PyData - en - Machine learning and IoT for automatic presence detection of workers on fall protection life lines - Stefano Terna
-33 - 980 - Talk - Python & Friends - it - How to fight with yourself and win - Christian Barra
-34 - 1029 - Talk - Python & Friends - it - PyContinuous Integration: una esperienza di vita - Giulio Calacoci
-35 - 975 - Talk - Python & Friends - it - Introduzione a MicroPython e BBC Micro:Bit - Andrea Grandi
-36 - 1050 - Talk - DjangoVillage - en - What we understood about Microservices - Saverio Mucci
-37 - 953 - Talk - Python & Friends - it - DukPy, liberarsi dalle catene di NodeJS - Alessandro Molina
-38 - 986 - Training - Python & Friends - en - Python for System Administrators - Roberto Polli
-39 - 987 - Talk - DjangoVillage - it - Grafici interattivi con Django e Highcharts JS (senza conoscere JS) - ERNESTO ARBITRIO
-40 - 963 - Talk - Python & Friends - en - CONNEXION: API FIRST REST FRAMEWORK FOR PYTHON - João Santos
-41 - 991 - Talk - Python & Friends - en - Abstract Base Classes: a smart use of metaclasses - Leonardo Giordani
-42 - 954 - Talk - Python & Friends - en - Introduction to MicroPython and BBC micro:bit - Andrea Grandi
-43 - 989 - Talk - DjangoVillage - it - Django e i test: alcuni supporti per vivere felici - Iacopo Spalletti
-44 - 994 - Talk - PyData - en - How to deploy scikit-learn machine learning models in the Cloud - Alex Casalboni
-45 - 1025 - Talk - PyData - en - Contagious Functional Concepts in Python and the Data Science Eco-System - Holger Peters
-46 - 974 - Talk - Python & Friends - en - Introduction to JSON Schema - Julian Berman
-47 - 1048 - Talk - DjangoVillage - en - Django tasty salad: DOs and DON'Ts using Celery - Roberto Rosario
-48 - 1020 - Talk - Python & Friends - en - Iottly, open source Internet of Things distribution - Stefano Terna
-49 - 1051 - Talk - Python & Friends - en - Fixing memory leaks with tracemalloc and gc - Marco Paolini
-50 - 1028 - Talk - PyData - en - Cython extends Python - Stefan Behnel
-51 - 1033 - Talk - Python & Friends - it - Multicorn: unicorni e elefanti possono lavorare in concerto. - Giulio Calacoci
-52 - 1004 - Talk - Python & Friends - en - A huge green snake bars the way!; Or, and Exercise in Refactoring - Katie Silverio
-53 - 966 - Talk - PyData - it - Metodi e  Strumenti per il Model Based Testing - Aniello Barletta
-54 - 1052 - Talk - Python & Friends - it - Sistemare i memory leaks con tracemalloc e gc - Marco Paolini
-55 - 1042 - Talk - PyData - en - Data Mangling with mongoDB the Right Way - Alexander Hendorf
-56 - 1056 - Training - DjangoVillage - en - Scale and distribute your django backend app - Marco Paolini
-57 - 1034 - Talk - Python & Friends - it - Docker e PostgreSQL: un matrimonio possibile? - Leonardo Cecchi
-58 - 1057 - Talk - DjangoVillage - it - Debito tecnico: come non andare in rosso - Simone Basso
-59 - 951 - Talk - Python & Friends - it - Introduzione a "Modern OpenGL" con Python - Roberto De Ioris
-60 - 1008 - Training - Python & Friends - en - Master class for aiohttp usage - Andrew Svetlov
-61 - 1019 - Talk - Python & Friends - it - Java VS Python - Simone Federici
-62 - 976 - Talk - Python & Friends - it - Erpy: una solida base per scrivere gestionali su misura. - Giovanni Porcari
-63 - 979 - Talk - Python & Friends - it - Genropy: non solo gestionali - Francesco Porcari
-64 - 1032 - Talk - Python & Friends - en - Taking care of PostgreSQL with Ansible - Rubens Souza
-65 - 1026 - Talk - DjangoVillage - it - Elasticsearch Blueprint - Christian Strappazzon
-66 - 988 - Talk - DjangoVillage - it - Django e i metadati - Iacopo Spalletti
-67 - 1003 - Talk - PyData - it - Machine learning e IoT per la rilevazione automatica di operatori su linee vita anticaduta - Stefano Terna
-68 - 1054 - Talk - DjangoVillage - it - Come integrare elasticsearch e dormire sonni tranquilli - Martino Pizzol
-69 - 1059 - Talk - DjangoVillage - it - Progetti a prezzo fisso e l'Agile - Peter Bittner
-70 - 1035 - Talk - PyData - en - Automatic English text correction - Tatiana Al-Chueyr
-71 - 957 - Talk - Python & Friends - it - Un CRM con Genropy,e altro - Alessandro Tufi
-72 - 984 - Training - Python & Friends - it - Dive into object-oriented Python - Leonardo Giordani
-73 - 1062 - Talk - DjangoVillage - en - Developing a developer-friendly hypermedia API with django-rest-framework and behave - Joost Cassee
-74 - 955 - Talk - PyData - it - Applied Bayesian Inference with PyMC - Marco Santoni
-75 - 977 - Training - Python & Friends - it - Genropy For Dummies - Francesco Porcari
-76 - 1024 - Talk - DjangoVillage - en - Fix-Price Projects And Agile - Peter Bittner
-77 - 1022 - Talk - Python & Friends - it - Iottly, distribuzione open source per Internet of Things - Stefano Terna
-78 - 1030 - Talk - Python & Friends - it - Auditing di un database PostgreSQL con Psycopg2 e pglogical - Marco Nenciarini
-79 - 959 - Talk - Python & Friends - it - Convalida dei dati per esseri umani - Nicola Iarocci
-80 - 1009 - Talk - Python & Friends - it - Una storia di mille storie, con due punti fermi: Python e PostgreSQL - carloratm carloratm
-81 - 1036 - Talk - PyData - en - Devops lessons for the data scientist - Luca Mearelli
-82 - 996 - Talk - PyData - it - Automatizzare la creazione e gestione di un cluster di containers su cloud tramite script Python - Paolo D'Onorio De Meo
-83 - 1043 - Talk - PyData - it - Aiuto !!! Ho un dataset "squilibrato" ! - Christian Barra
-84 - 1053 - Talk - Python & Friends - it - Autocompletamento per Blender Game Engine logic  - Anna Chiara Bellini
-85 - 1005 - Talk - PyData - it - Introduzione a Orange Data Mining - Eric Bonfadini
-86 - 1023 - Talk - Python & Friends - it - Python come Hardware Description Language - Paolo Guadagnuolo
-87 - 1049 - Talk - DjangoVillage - it - Progetti acceptance test-driven con Django - Peter Bittner
-88 - 981 - Talk - Python & Friends - it - Fate RPG: una web application per giocarlo online. - Saverio Porcari
-89 - 985 - Training - Python & Friends - en - Dive into object-oriented Python - Leonardo Giordani
-90 - 965 - Talk - Python & Friends - en - From Java to Python - OFFER SHARABI
-91 - 967 - Talk - Python & Friends - it - Monitoraggio delle Risorse con Zabbix e Python - Massimiliano Cuzzoli
-92 - 971 - Talk - DjangoVillage - it - Django e frontend? Gulp! Razionalizzare la gestione degli assets frontend in un progetto Django - Alberto Motta
-93 - 1016 - Talk - PyData - it - In-Database analytics with python and monetdb - Danilo Maurizio
-94 - 1037 - Talk - PyData - it - Lezioni devops per data scientist - Luca Mearelli
-95 - 1010 - Talk - DjangoVillage - en - Acceptance Test-driven Projects With Django - Peter Bittner
-96 - 1041 - Talk - Python & Friends - it - Come passare indenni (o quasi) la traversata da Java a Python - Ugo Scaiella
-97 - 1055 - Talk - Python & Friends - en - Blender Game Engine logic and autocompletion - Anna Chiara Bellini
-98 - 1060 - Training - DjangoVillage - it - Rendi scalabile la tua app django - Marco Paolini
-99 - 958 - Talk - DjangoVillage - it - Viaggiare leggeri col proprio progetto Django - Riccardo Magliocchetti
-100 - 1017 - Talk - PyData - it - HPC con Python: istruzioni per l'uso - Nicola Creati
-101 - 968 - Talk - Python & Friends - en - Resource Monitoring with Zabbix and Python - Massimiliano Cuzzoli
-102 - 1018 - Talk - DjangoVillage - it - Pytest & Django are really good friends!! - Simone Dalla
-103 - 997 - Talk - DjangoVillage - it - django SHOP è ritornato - Jacob Rief
-104 - 995 - Talk - DjangoVillage - en - djangoSHOP is back - Jacob Rief
-105 - 972 - Talk - DjangoVillage - it - Django 💖Gulp - Mattia Larentis
-106 - 1001 - Talk - Odoo - it - Odoo in Italia: La suite di applicazioni business scritta in python - Mario Riva
-107 - 1012 - Talk - Odoo - it - Primi passi in Odoo dev - Eliumara Lopez
-108 - 982 - Talk - Python & Friends - it - jmb.mailup, uno strumento semplice per interfacciarsi con MailUp - Benedetto Campanale
-109 - 992 - Talk - Odoo - it - Sviluppare su Odoo - Nicola Malcontenti
-110 - 993 - Talk - Odoo - it - OCA, la community internazionale di Odoo: Come contribuire sfruttando al meglio github. - Alex Comba
-111 - 950 - Talk - Python & Friends - it - Perl6 is here to rest! - David Mugnai
-112 - 1013 - Talk - Odoo - it - Gestione di un Consorzio con Odoo - Piero Cecchi
+181 talks / 109 users / 5366 votes 👨‍💻
+Idx~TID~Type~Duration~Track~Lang~Title~Speakers~Gender
+1~1257~Talk~45~PyData~it~AI, Machine Learning e Deep Learning: cosa cambia?~Antonio Spadaro~male
+2~1099~Talk~90~PyCommunity~it~L’Italia, python e la chimera dell’Agile~Gabriele Giaccari~male
+3~1174~Talk~45~PyData~en~Facial Analysis Techniques for Pythonista (and beyond!)~Alex Casalboni~male
+4~1151~Talk~45~PyLang~en~Performant Python~Burkhard Kloss~male
+5~1182~Talk~45~PyLang~en~Demystifying Decorators~Akul Mehra~male
+6~1088~Talk~45~PyData~en~Solving the Rubiks Cube with Python~Daan van Berkel~male
+7~1114~Talk~45~PyWeb~en~Building Serverless applications with Python~Andrii Soldatenko~male
+8~1175~Talk~60~PyData~en~Deep Learning made easy~Jalem Raj Rohit~male
+9~1199~Talk~60~PyData~en~The unconventional Introduction to Deep Learning~Valerio Maggio~male
+10~1200~Training~240~PyData~en~Deep Learning, the Keras way~Valerio Maggio~male
+11~1255~Talk~60~PyData~en~A Gentle Introduction to Neural Networks (with Python)~Tariq Rashid~male
+12~1186~Talk~45~PyData~en~Introduction to Data-Analysis with Pandas~Alexander Hendorf~male
+13~1104~Talk~60~PyData~it~Machine Learning con Python: previsione in real-time della richiesta di energia elettrica~Felice Tuosto~male
+14~1187~Talk~45~PyWeb~it~Create a serverless infrastructure for data collection with Python and AWS~David Santucci~male
+15~1216~Talk~30~PyLang~en~Tales from the Crypt: A Cryptography Primer~Adam Englander~male
+16~1097~Talk~45~PyLang~it~ByteCode al supporto dei test per protocolli ed enforcing di best practices~Alessandro Molina~male
+17~1135~Talk~60~PyLang~en~Solving the web most popular code shortening competition with Python 3~Alessandro Amici~male
+18~1136~Talk~45~PyData~it~Affrontare le sfide del cambiamento climatico con Python~Alessandro Amici~male
+19~1185~Talk~45~PyData~en~Time Series Analysis with Pandas~Alexander Hendorf~male
+20~1080~Talk~45~PyLang~it~Unreal Engine 4 e Python: Ora si Puo'~Roberto De Ioris~male
+21~1128~Talk~60~PyData~it~Machine Learning con Python: algoritmi NILM e real-time processing~Felice Tuosto~male
+22~1090~Talk~45~PyData~en~OpenCV for face detection~Ken Alger~male
+23~1137~Talk~60~PyDatabase~it~Digital Analytics Data Aggregation: un case study dal mondo reale utilizzando SQL, NoSQL e Pandas~Alessandro Pelliciari~male
+24~1101~Talk~45~PyCommunity~en~Is it too late to learn how to program and how being a developer change my life~Alicia Carr~female
+25~1132~Talk~45~PyCommunity~it~Perché Python fa schifo!~Antonio Spadaro~male
+26~1102~Talk~45~PyWeb~it~Indicizzare e ricercare tonnellate di dati con ElasticSearch e Django~Ernesto Arbitrio~male
+27~1190~Talk~45~PyWeb~it~Django Rest Framework - Tips&Tricks~Luca Zacchetti~male
+28~1193~Talk~45~PyData~en~How to turn Wikipedia into a Quiz Game~Andrea Cappelli, Roberto Turrin~male, male
+29~1223~Talk~30~PyWeb~en~Out of Sight, Out of Mind: Survival tricks and tools for remote developers~Alessio Bragadini~male
+30~1253~Talk~60~PyData~it~Where are you going? An overview on machine learning models for human mobility~Gianni Barlacchi~male
+31~1091~Talk~45~PyLang~en~Python on $5 IoT Device~Ken Alger~male
+32~1148~Talk~60~PyData~it~Tensor decomposition with Python: Learning structures from multidimensional data~André Panisson~male
+33~1180~Talk~45~PyData~en~An Introduction to Pandas for Data Analysis in Python~Ayush Kumar Singh~male
+34~1077~Training~240~PyLang~en~ 4️⃣ ore di Silenzio 😶 Assoluto 🛌 😴💤~Carlo🍺 Miron🍺~male
+35~1191~Talk~60~PyLang~en~PyPy Status Update~Antonio Cuni~male
+36~1084~Talk~45~PyWeb~en~Crash test of Django ORM~Andrii Soldatenko~male
+37~1170~Talk~60~PyWeb~en~Understanding Serverless Architecture~Jalem Raj Rohit~male
+38~1086~Talk~45~PyWeb~it~Getting started with requests HTTP library~Andrea Grandi~male
+39~1252~Talk~45~PyData~en~Basic principles of scientific data visualization~Giuseppe Jurman~male
+40~1197~Talk~60~PyWeb~it~Serverless computing con Python e AWS~Federico Caboni~male
+41~1217~Talk~30~PyLang~en~Behavioral Driven Development: Tame the Beast~Adam Englander~male
+42~1194~Talk~45~PyData~en~Explore the brain with Nilearn~Darya Chyzhyk~female
+43~1173~Talk~45~PyData~en~An Introduction to Feature Selection in Machine Learning using Python~Rahul Baboota~male
+44~1117~Talk~45~PyData~it~Word Embedding: come codificare il linguaggio naturale per algoritmi di previsione e classificazione~Felice Tuosto, Andrea Ianni~male, male
+45~1082~Training~240~PyData~en~Intro to Natural Language Processing in Python~Marco Bonzanini~male
+46~1106~Talk~60~PyData~en~The Journey Of aeneas: A Python Adventure In Text and Speech~Alberto Pettarin~male
+47~1156~Talk~60~PyCommunity~en~Python in Africa~Anna Makarudze~female
+48~1189~Talk~45~PyLang~it~Python e swift: linguaggi a confronto~Lelio Campanile~male
+49~1131~Talk~45~PyData~en~Jupyter: if you don't use it yet you're doing wrong~Christian Barra~male
+50~1195~Talk~45~PyWeb~it~Deploy automatizzato di un progetto Python 3/Django con Ansible~Marco Santamaria~male
+51~1210~Talk~30~PyCommunity~en~From Idea to Presentation: How to Prepare a Conference Talk~Anna Ossowski~female
+52~1176~Talk~60~PyCommunity~it~E.T. chiama Python~Davide Corio~male
+53~1198~Talk~60~PyWeb~en~Serverless computing with Python and AWS~Federico Caboni~male
+54~1126~Talk~45~PyWeb~en~Why I still develop synchronous web in the asyncIO era~Giovanni Barillari~male
+55~1206~Talk~30~PyCommunity~en~Be(come) a Mentor! Help Others Succeed! ~Anna Ossowski~female
+56~1085~Talk~45~PyLang~en~Test Driven Deployment with Ansible 2.~Roberto Polli~male
+57~1207~Talk~30~PyCommunity~en~No Coding Skills Required: How to Contribute to Open Source in Other Ways ~Anna Ossowski~female
+58~1246~Talk~30~PyWeb~en~Django among modern web frameworks – was Angular2 a good choice?~Andrzej Krawczyk~male
+59~1108~Talk~60~PyLang~en~42 PyCharm Tips and Tricks~Dmitry Trofimov~male
+60~1111~Talk~45~PyWeb~en~An Introduction to web scraping using Python~Manoj Pandey~male
+61~1127~Talk~45~PyWeb~it~Perché sviluppo ancora web sincrono nell'era dell'asyncIO~Giovanni Barillari~male
+62~1167~Talk~60~PyBusiness~it~Realizzare stampe HTML e PDF usando solo Python~Saverio Porcari~male
+63~1154~Talk~45~PyLang~it~Chat Bot in Telegram (e slack e altri)~Lorenzo Buonanno, Tommaso Sartor~male, male
+64~1215~Talk~30~PyWeb~en~Django and the testing pyramid~Aaron Bassett~male
+65~1184~Talk~45~PyCommunity~en~Growing a Python community~Anton Caceres~male
+66~1110~Talk~45~PyData~en~Sparking Pandas: an experiment~Francesco Bruni~male
+67~1228~Talk~30~PyWeb~en~Data loss prevention in modern web applications~Xavier Dutreilh~male
+68~1256~Talk~60~PyCommunity~en~Don't try to look smart. Be smart~Flavio Percoco~male
+69~1094~Talk~60~PyWeb~en~Amazon Web Services for dummies - tips and tricks~Justyna Janczyszyn~female
+70~1245~Talk~30~PyCommunity~en~Compassionate Code Reviews~April Wensel~female
+71~1121~Talk~45~PyWeb~it~OpneSSH SFTP service con Python: pysftpserver.~Filippo Morelli~male
+72~1224~Talk~30~PyCommunity~en~Rants and Ruminations From A Job Applicant After 💯 CS Job Interviews in Silicon Valley~Susan Tan~female
+73~1096~Talk~60~PyWeb~it~Amazon Web Services per i principianti - consigli e trucchi~Justyna Janczyszyn~female
+74~1079~Talk~60~PyLang~it~Creare videogiochi per smartphone con Kivy~Rigel Di Scala~male
+75~1129~Talk~60~PyLang~it~Rusty Python~Matteo Bertini~male
+76~1133~Talk~45~PyData~en~Space weather monitoring for a simulation of a Martian settlement based on Virtual Reality~Giovanni Bruno~male
+77~1144~Talk~45~PyDatabase~it~Full Text Search con PostgreSQL~Giuseppe Broccolo~male
+78~1146~Talk~45~PyDatabase~it~Disaster recovery: una serie di sfortunati eventi~Giulio Calacoci~male
+79~1155~Training~240~PyLang~it~Scrivere Chat Bot per Telegram e Slack~Lorenzo Buonanno, Tommaso Sartor~male, male
+80~1208~Talk~30~PyCommunity~en~The Hidden Power Dynamics of Open Source~Anna Ossowski~female
+81~1202~Talk~45~PyData~en~Catching Neutrinos with Python and KM3NeT~Tamás Gál~male
+82~1188~Talk~45~PyLang~it~Svilluppare con python sull'iPad~Lelio Campanile~male
+83~1107~Talk~45~PyData~it~Il Viaggio di aeneas: Un'Avventura Con Python Tra Testo e Parlato~Alberto Pettarin~male
+84~1109~Talk~45~PyLang~en~Just one Shade of OpenStack~Roberto Polli~male
+85~1192~Talk~60~PyDatabase~it~Python e PostgreSQL, un connubio perfetto~Marco Nenciarini~male
+86~1221~Talk~30~PyCommunity~en~Applying the unix philosophy to django projects: a report from the real world~Federico Capoano~male
+87~1100~Talk~45~PyCommunity~it~Taiga e l’agile project management: join the Oompa Loompas’ Army!~Gabriele Giaccari~male
+88~1152~Talk~45~PyLang~en~Plugin Based Chat Bots in Telegram (and Slack and others)~Lorenzo Buonanno, Tommaso Sartor~male, male
+89~1171~Talk~45~PyBusiness~it~Da applicativi Desktop a Web~Luigi Renna~male
+90~1177~Talk~45~PyWeb~it~Open edX, soluzione per l'e-learning basata su Django~Davide Corio~male
+91~1196~Talk~45~PyWeb~en~Automated deploy of a Python 3/Django project with Ansible~Marco Santamaria~male
+92~1230~Talk~30~PyWeb~en~Type uWSGI; press enter; what happens?~Philip James~male
+93~1249~Talk~30~PyWeb~en~Planet friendly web development with Django~Chris Adams~male
+94~1124~Talk~60~PyWeb~it~weppy: il framework web per umani~Giovanni Barillari~male
+95~1134~Talk~45~PyData~en~Word Embeddings for Natural Language Processing in Python~Marco Bonzanini~male
+96~1166~Talk~45~PyCommunity~en~Scientific Hooliganism: lessons from the first hack in history~Lilly Ryan~female
+97~1209~Talk~30~PyCommunity~en~Threading Yarn, Writing Code: What Traditional Arts and Crafts Can Teach Us About Programming~Anna Ossowski~female
+98~1112~Talk~45~PyLang~en~Attack of Pythons : Gotchas and Landmines in Python~Manoj Pandey~male
+99~1120~Talk~45~PyWeb~en~Presenting pysftpserver: OpenSSH SFTP service with Python.~Filippo Morelli~male
+100~1226~Talk~30~PyCommunity~en~Navigating unconscious bias~Anna Schneider~female
+101~1239~Talk~30~PyLang~en~Loop better: a deeper look at iteration in Python~Trey Hunner~male
+102~1092~Talk~60~PyData~it~Validazione e decodifica di file XML con Python~Davide Brunato~male
+103~1098~Talk~60~PyData~it~Dai dati alla visualizzazione: la mia prima data pipeline~Riccardo Magliocchetti~male
+104~1078~Talk~45~PyWeb~it~Django nella giungla Javascript ~Patrick Guido Arminio~male
+105~1119~Talk~45~PyDatabase~it~Ricerca full text in Django con PostgreSQL~Paolo Melchiorre~male
+106~1139~Training~240~PyData~en~Supervised learning in high dimensional data: from zero to ℵ-0~Matteo Barbieri~male
+107~1122~Talk~45~PyLang~en~Ansible roles, private git repos and the Ansible Galaxy tool~Serena Lorenzini~female
+108~1153~Training~240~PyLang~en~Writing Plugin Based Chat Bots in Telegram (and Slack)~Lorenzo Buonanno, Tommaso Sartor~male, male
+109~1204~Talk~45~PyData~en~How to use pandas the wrong way~Pietro Battiston~male
+110~1213~Talk~30~PyLang~en~Comprehensible Comprehensions~Trey Hunner~male
+111~1179~Talk~60~PyCommunity~en~E.T. phone Python~Davide Corio~male
+112~1218~Talk~30~PyCommunity~en~Leading an open source project as a startup.~Nicolas Garnier~male
+113~1219~Talk~30~PyWeb~en~The hard long journey of submitting a form~Filipe de Alencar Ximenes~male
+114~1235~Talk~30~PyCommunity~en~Security Starts With You: Social Engineering~Tiberius Hefflin~male
+115~1237~Talk~30~PyCommunity~en~How Not To Password~Tiberius Hefflin~male
+116~1093~Talk~60~PyWeb~en~Infrastructure as Code with Terraform~Justyna Janczyszyn~female
+117~1247~Talk~30~PyWeb~en~The mullet architecture - Elasticsearch in the front, Postgres in the back~Honza Král~male
+118~1087~Training~240~PyLang~en~Costruiamo l’Internet dei Robot~Ludovico Orlando Russo~male
+119~1089~Talk~45~PyLang~it~Rules of thumb to test the documentation~Marco Buttu~male
+120~1095~Talk~60~PyWeb~it~Infrastruttura come codice con Terraform~Justyna Janczyszyn~female
+121~1105~Talk~45~PyWeb~en~Geospatial three amigos: Python, Leaflet, and ElasticSearch~Roberto Rosario~male
+122~1158~Talk~45~PyCommunity~en~ZimboPy: Empowering Zimbabwean Girls As Change Makers~Marlene Mhangami~female
+123~1145~Talk~45~PyLang~en~Continuous Delivery for Iot with Python and Iottly~Stefano Terna~male
+124~1244~Talk~30~PyLang~en~Python, Locales and Writing Systems~Rae Knowler~female
+125~1241~Talk~30~PyWeb~en~Django Admin - The Swiss Army Knife~Prakash Kumar~male
+126~1250~Talk~45~PyCommunity~en~Keeping up with the pace of a fast growing community without dying ~Flavio Percoco~male
+127~1163~Talk~45~PyBusiness~it~Analisi dati e grafici in Genropy~Francesco Porcari~male
+128~1081~Talk~60~PyLang~it~Cross-platform game development with Kivy~Rigel Di Scala~male
+129~1115~Talk~45~PyCommunity~en~Combating Impostor Syndrome~Ken Alger~male
+130~1116~Talk~45~PyWeb~it~MIT MicroMasters: come sviluppare una web application basata su servizi esterni.~Giovanni Di Milia~male
+131~1142~Talk~45~PyDatabase~it~PostgreSQL su NFS: miti e verità~Jonathan Battiato~male
+132~1143~Talk~45~PyData~it~Misura: Un sistema per il controllo strumentale, l'acquisizione dati ed il calcolo scientifico~Daniele Paganelli~male
+133~1150~Talk~45~PyData~en~The Wild West of Data Wrangling~Sarah Guido~female
+134~1123~Talk~45~PyLang~it~Ansible: sviluppo e utilizzo di roles seguendo il modello di Ansible Galaxy~Serena Lorenzini~female
+135~1203~Talk~45~PyData~it~Come usare male pandas~Pietro Battiston~male
+136~1248~Talk~30~PyWeb~en~Serverlessness - augmenting your Django apps with Functions-as-a-Service~Tom Dyson~male
+137~1251~Talk~45~PyData~it~Monitoring Beach Morphology with Python~Luca Liberti~male
+138~1147~Talk~45~PyLang~en~Artistic Python: Mixing Python Programming with Fashion ~Ria Baldevia~female
+139~1118~Talk~45~PyLang~en~Python + Windows, like a boss~Nicola Iarocci~male
+140~1138~Talk~45~PyLang~it~Pilotare un braccio robotico dal cloud con GenroPy e Raspberry~Michele Bertoldi~male
+141~1242~Talk~30~PyWeb~en~Qualities of great reusable Django apps~Flávio Juvenal da Silva Junior~male
+142~1254~Talk~45~PyData~en~Differential network analysis and graph classification: a glocal approach~Giuseppe Jurman~male
+143~1233~Talk~30~PyCommunity~en~Never Accept the First Offer~Tiberius Hefflin~male
+144~1160~Talk~45~PyLang~en~Roboto Framework for Test Code Coverage for cloud services.~khushbu parakh~female
+145~1113~Talk~45~PyData~it~RFLab - Controllo remoto strumentazione di un laboratorio nel settore delle microonde~Andrea Saba~male
+146~1125~Talk~60~PyWeb~en~weppy: the web framework for humans~Giovanni Barillari~male
+147~1172~Talk~45~PyBusiness~it~iCond: GenroPy per amministratori di condomini~Andrea Busanelli~male
+148~1178~Talk~45~PyBusiness~it~Sviluppo lato client con Odoo~Davide Corio~male
+149~1083~Talk~45~PyData~it~Fuzzy is the new sexy: a tour of scikit-fuzzy~Niccolo Raspa~male
+150~1212~Talk~30~PyWeb~en~Scaling Django with Kubernetes~Saket Bhushan~male
+151~1214~Talk~30~PyCommunity~en~Mastering Your Tools~Miguel Branco Palhas~male
+152~1229~Talk~30~PyWeb~en~Beginning with django? Why you need to continue with django ~Opetunde Adepoju~female
+153~1103~Talk~45~PyLang~en~Awesome CLI~Mark Fink~male
+154~1157~Talk~60~PyLang~it~Creazione ed evoluzione di un framework per interfacce grafiche Multi-Touch con OpenGL~Tiziano Carotti~male
+155~1165~Training~240~PyBusiness~en~Creiamo un'applicazione per la gestione di ticket in Genropy~Francesco Porcari~male
+156~1164~Talk~45~PyBusiness~it~Form e Campi dinamici in Genropy~Francesco Porcari~male
+157~1149~Talk~45~PyData~it~Real-time Trajectory Optimization through contacts, a simple test case.~Tommaso Sartor~male
+158~1205~Training~240~PyData~it~Quando il saggio indica il cielo, pandas guarda l'indice~Pietro Battiston~male
+159~1227~Talk~30~PyWeb~en~Migrating from JavaEE to Django: the OSIS case of embracing cultural and technical changes~Hildeberto Mendonca~male
+160~1232~Talk~30~PyCommunity~en~Why the Internet Loves Cats ~Tiberius Hefflin~male
+161~1234~Talk~30~PyLang~en~James and the Giant Forensics Toolkit~Tiberius Hefflin~male
+162~1238~Talk~30~PyCommunity~en~Time Tracking is Hard~Sam Deng~male
+163~1141~Talk~45~PyDatabase~en~Taking care of PostgreSQL with Ansible~Rubens Souza~male
+164~1236~Talk~30~PyCommunity~en~The Monster on the Project~Tiberius Hefflin~male
+165~1161~Talk~45~PyLang~it~ENVIFATE: plugin per QGIS per la valutazione del rischio di inquinamento ambientale~Francesco Geri~male
+166~1225~Talk~30~PyWeb~en~Integrating the Bokeh library with Django~Ken Alger~male
+167~1240~Talk~30~PyWeb~en~Preventing issues on Django with linters and tools~Flávio Juvenal da Silva Junior~male
+168~1159~Talk~60~PyBusiness~it~Genropy: 10 anni di sviluppo di un framework italiano~Giovanni Porcari~male
+169~1162~Talk~60~PyWeb~it~Django ORM in server TCP con backend multischema PostgreSQL~Luca Ferroni~male
+170~1130~Talk~45~PyData~it~ LiFT - Un tagger di features per l’analisi multidimensionale di testi ottimizzato per PySpark ~Michele Gabusi~male
+171~1201~Talk~45~PyLang~it~Terrain Generation in Python with Processing~Paolo Improta~male
+172~1181~Talk~45~PyBusiness~it~Genropy - Caso d'uso: gestione di una infrastruttura telefonica VoIP di medie/grandi dimensioni~Mauro Zanardi~male
+173~1183~Talk~45~PyBusiness~it~Un anno di Genropy~Muhammad Hassan Khurshid~male
+174~1211~Talk~30~PyCommunity~en~Dial M For Mentor~Mariatta Wijaya~female
+175~1231~Talk~30~PyWeb~en~Deploying your django application using puppet~Krzysztof Żuraw~male
+176~1243~Talk~30~PyWeb~en~Addons: I can solve 90% of your problems. The other 90% are up to you.~Stefan Foulis~male
+177~1140~Talk~45~PyData~en~ADENINE: A Data ExploratioN pIpeliNE~Samuele Fiorini~male
+178~1222~Talk~30~PyCommunity~en~People Are Coming To My Beginning Workshop, What Now?~Nicholle James~female
+179~1169~Talk~45~PyWeb~it~Wargame web app - Odoo come framework di sviluppo~Nicola Malcontenti~male
+180~1168~Talk~45~PyBusiness~it~Usare Erpy da applicazioni esterne~Giovanni Porcari~male
+181~1220~Talk~30~PyWeb~en~Using SASS in Django~Jacob Rief~male
