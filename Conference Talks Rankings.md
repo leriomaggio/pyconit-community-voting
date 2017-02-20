@@ -2053,6 +2053,7 @@ trainings = rankings[rankings['Type'].values == 'Training']
 talks = rankings[rankings['Type'].values == 'Talk']
 ```
 
+<a name="stats"></a>
 # Stats
 
 ## Speakers Stats
@@ -2270,7 +2271,7 @@ trainings
 <a name="talks"></a>
 # Talks Ranking (per single Track)
 
-<a name="pycon"></a>
+<a name="pylang"></a>
 ##  Track `PyLang` 
 
 
@@ -2726,7 +2727,7 @@ print(pylang.Level.value_counts())
     Name: Level, dtype: int64
 
 
-<a name="pycomm"></a>
+<a name="pycommunity"></a>
 ## Track `PyCommunity` 
 
 

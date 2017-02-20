@@ -21,4 +21,4 @@ Community Voting Results and Rankings of Talks proposed at PyCon Otto: [http://p
 *  [**PyData**](https://gist.github.com/leriomaggio/3762d7e50d208d26c192fff5c6faa813#pydata)
 *  [**PyWeb**](https://gist.github.com/leriomaggio/3762d7e50d208d26c192fff5c6faa813#pyweb)
 * [**PyBusiness**](https://gist.github.com/leriomaggio/3762d7e50d208d26c192fff5c6faa813#pybusiness)
-* [**PyDatabase**](https://gist.github.com/leriomaggio/3762d7e50d208d26c192fff5c6faa813#pydatabase)
+* [**PyDatabase**](https://gist.github.com/leriomaggio/3762d7e50d208d26c192fff5c6faa813#pydb)
