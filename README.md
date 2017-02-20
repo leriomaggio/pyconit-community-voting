@@ -1,4 +1,4 @@
-# PyCon 7 Community Voting Results #
+# PyCon 8 Community Voting Results #
 
 <div style="background-color:#000"> 
     <img src='logos/pycon8.png' width='50%' />
@@ -13,7 +13,7 @@ Community Voting Results and Rankings of Talks proposed at PyCon Otto: [http://p
 
 * [**Talks**](https://gist.github.com/leriomaggio/3762d7e50d208d26c192fff5c6faa813#talks)
 * [**Traninngs**](https://gist.github.com/leriomaggio/3762d7e50d208d26c192fff5c6faa813#trainings)
-* [**Stats**]((https://gist.github.com/leriomaggio/3762d7e50d208d26c192fff5c6faa813#stats))
+* [**Stats**](https://gist.github.com/leriomaggio/3762d7e50d208d26c192fff5c6faa813#stats)
 
 ### Tracks
 
