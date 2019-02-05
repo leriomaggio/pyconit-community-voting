@@ -6,7 +6,7 @@
 
 Community Voting Results and Rankings of Talks proposed at PyCon X: [http://pycon.it]()
 
-* **Notebook**: [Conference Talks Rankings](./Conference Talks Rankings.ipynb)
+* **Notebook**: <a href="./Conference Talks Rankings.ipynb" title="Conference Talks Rankings">Conference Talks Rankings</a>
 
 ## All the Rankings & Stats: ##
 
